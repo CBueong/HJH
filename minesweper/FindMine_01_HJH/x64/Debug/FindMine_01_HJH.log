@@ -1,79 +1,57 @@
-﻿  pch.cpp
-  Application.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
+﻿  Application.cpp
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
   FindMine_01_HJH.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
   Scene.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(7): error C2504: 'Scene': 기본 클래스를 정의하지 않았습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.h(13): error C2504: 'Scene': 기본 클래스를 정의하지 않았습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(7): error C2504: 'Scene': 기본 클래스를 정의하지 않았습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.h(13): error C2504: 'Scene': 기본 클래스를 정의하지 않았습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
   SceneField.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(7): error C2504: 'Scene': 기본 클래스를 정의하지 않았습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(7): error C2504: 'Scene': 기본 클래스를 정의하지 않았습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
   SceneIntro.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.cpp(4): error C2664: 'Scene::Scene(const Scene &)': 인수 1을(를) 'SceneManager *'에서 'const Scene &'(으)로 변환할 수 없습니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.cpp(4): note: 원인: 'SceneManager *'에서 'const Scene'(으)로 변환할 수 없습니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.cpp(4): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.cpp(4): error C2664: 'Scene::Scene(const Scene &)': 인수 1을(를) 'SceneManager *'에서 'const Scene &'(으)로 변환할 수 없습니다.
+  d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.cpp(4): note: 원인: 'SceneManager *'에서 'const Scene'(으)로 변환할 수 없습니다.
+  d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.cpp(4): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
   SceneManager.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneintro.h(9): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.h(15): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.h(10): error C2061: 구문 오류: 식별자 'SceneManager'
   SceneSelect.cpp
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C7525: 인라인 변수에는 '/std:c++17' 이상이 필요합니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): error C2864: 'SceneManager::instance': in-class initializer가 있는 정적 데이터 멤버은(는) volatile이 아닌 const 정수 형식을 포함하거나 'inline'으로 지정되어야 합니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(7): note: 'SceneManager *' 형식입니다.
-e:\hjh\hjh\minesweper\findmine_01_hjh\sceneselect.cpp(6): error C2248: 'SceneManager::~SceneManager': private 멤버('SceneManager' 클래스에서 선언)에 액세스할 수 없습니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(28): note: 컴파일러에서 여기에 'SceneManager::~SceneManager'을(를) 생성했습니다.
-  e:\hjh\hjh\minesweper\findmine_01_hjh\scenemanager.h(5): note: 'SceneManager' 선언을 참조하십시오.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(8): error C2061: 구문 오류: 식별자 'SceneManager'
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scene.h(12): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\sceneselect.cpp(6): error C2248: 'SceneManager::~SceneManager': private 멤버('SceneManager' 클래스에서 선언)에 액세스할 수 없습니다.
+  d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenemanager.h(28): note: 컴파일러에서 여기에 'SceneManager::~SceneManager'을(를) 생성했습니다.
+  d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenemanager.h(5): note: 'SceneManager' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
