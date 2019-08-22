@@ -10,6 +10,8 @@ public:
 	// Object을(를) 통해 상속됨
 	virtual eObjectType GetObjectType() const override;
 
+	virtual Rect GetRendertRect()const override;	//+
+
 	RenderTile	m_Data;
 };
 

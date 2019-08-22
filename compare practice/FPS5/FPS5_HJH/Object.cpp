@@ -1,7 +1,21 @@
 ﻿#include "pch.h"
 #include "Object.h"
 
-Object::Object(int _x, int _y) : x(_x), y(_y) { }
+RenderTile Object::Empty = RenderTile{
+	{"     "},
+	{"     "},
+	{"     "},
+	{"     "},
+	{"     "},
+};
+
+Object::Object(int _x, int _y) : x(_x), y(_y)
+{
+	rt.x = _x * TileSize;
+	rt.y = _y * TileSize;
+	rt.w = TileSize;
+	rt.h = TileSize;
+}
 
 Object::~Object() { }
 
@@ -24,10 +38,31 @@ void Object::Update(float a_fDelta)
 	_Update(a_fDelta);
 }
 
+Rect Object::GetRendertRect() const
+{
+	return rt;
+}
+
+void Object::Clear()
+{
+	Rect rt = GetRendertRect();
+	int nX = rt.x;
+	int nY = rt.y;
+
+	for (int i = 0; i < TileSize; ++i)
+	{
+		char* pDest = m_refMap[nY + i];
+
+		memcpy_s((pDest + nX), TileSize * sizeof(char),
+			Empty[i], TileSize * sizeof(char));
+	}
+}
+
 void Object::Render()
 {
-	int nX = x * TileSize;
-	int nY = y * TileSize;
+	Rect rt = GetRendertRect();//
+	int nX = rt.x;			   //
+	int nY = rt.y;			   //
 
 	for (int i = 0; i < TileSize; ++i)
 	{

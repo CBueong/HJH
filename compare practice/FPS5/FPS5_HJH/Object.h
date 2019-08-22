@@ -17,16 +17,21 @@ public:
 	
 	inline void SetPos(int _x, int _y) { x = _x; y = _y; }
 
+	virtual Rect GetRendertRect() const;	//+
+
 protected:
+	void Clear();	//+
 	virtual void _PreUpdate(float a_fDelta); // 이전단계의 글자 지우기
 	virtual void _Update(float a_fDelta);
 
 public:
 	int x;
 	int y;
+	Rect rt;	//+
 
 protected:
 	
+	static RenderTile Empty;	//+
 	char**	m_refMap = nullptr;
 	RenderTile*	m_pNowAni = nullptr;
 };
