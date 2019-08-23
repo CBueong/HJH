@@ -31,6 +31,10 @@ eObjectType Door::GetObjectType() const
 	return eObjectType::Door;
 }
 
+bool Door::CanMove()const
+{
+return(m_eState == eDoorState::Open);
+}
 void Door::Init()
 {
 	m_eState = eDoorState::Close;

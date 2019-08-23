@@ -6,6 +6,7 @@ public:
 	Object(int _x, int _y);
 	virtual ~Object();
 	virtual eObjectType GetObjectType() const = 0;
+virtual bool CanMove() const;
 
 bool Update(float a_fDelta);//
 	void Render();
@@ -13,15 +14,15 @@ bool Update(float a_fDelta);//
 	void RenderClear();
 
 	virtual void Init();
-	virtual void Explosived(class Bomb* a_refBomb);
+	virtual bool Explosived();
 	virtual bool Interaction(class Player* a_refHero);
 	
 	inline void SetPos(int _x, int _y) { x = _x; y = _y;rt.x = _x;rt.y=_y; }
-inline bool IsCross(const Object& a_refObj)
+inline bool IsCross(const Object& a_refObj) const
 {
 return rt.IsCross(a_refObj.rt);
 }
-inline bool IsCross(Object* a_refObj)
+inline bool IsCross(Object* a_refObj) const
 {
 assert((a_refObj != nullptr) && "arg error");
 return IsCross(*a_refObj);

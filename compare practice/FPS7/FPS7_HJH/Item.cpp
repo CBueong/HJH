@@ -101,6 +101,10 @@ return true;
 return false;
 }
 
+bool Item::CanMove()const
+{
+return true;
+}
 void Item::_PreUpdate(float a_fDelta)
 {
 RenderClear();

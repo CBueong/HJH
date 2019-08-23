@@ -61,6 +61,10 @@ void SceneManager::Render()
 	m_pNowScene->Render();
 }
 
+void SceneManager::PostRender()
+{
+m_pNowScene->PostRender();
+}
 void SceneManager::KeyCheck()
 {
 	for (int i = 0; i < (int)eKey::Max; ++i)

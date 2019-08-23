@@ -27,6 +27,13 @@ enum class eKey
 	Max,
 };
 
+enum class eDir//
+{
+Left,
+Top,
+Right,
+Bottom,
+};
 enum class eInputState : short
 {
 	None	= 0b00,
@@ -48,7 +55,7 @@ enum class eScene
 enum class eObjectType
 {
 	None = 0,
-	RenderDepthGap = 1000,	// change Level -> RenderDepth
+	RenderDepthGap = 1000,	
 
 	RenderDepth1 = RenderDepthGap * 1,
 	RenderDepth2 = RenderDepthGap * 2,
@@ -59,10 +66,12 @@ enum class eObjectType
 	Box = RenderDepth2 +1,
 	Door,
 	Item,
-	Bomb,
+	
 
 	Player = RenderDepth3 + 1,
 	Monster,
+	Explosion,//
+	Bomb,//
 };
 
 enum class eItem
@@ -111,7 +120,7 @@ struct RenderLine
 	}
 	RenderLine(const char* s)
 	{
-	size_t nLen =strlen(s);	// int ->size_t
+	size_t nLen =strlen(s);	
 	assert(nLen <= TileSize);
 	
 	strcpy_s(c,sizeof(char)*(TileSize+1),s);
@@ -147,18 +156,18 @@ struct Rect
 	float y;
 	float w;
 	float h;
-	bool IsCross(const Rect& rt)
+	bool IsCross(const Rect& rt)const
 	{
 			if((x>=rt.x+rt.w) ||
 			 (x+w <= rt.x) ||
-			  (y >= rt.y+h) || 
+			  (y >= rt.y+rt.h) || 
 			(y+h <= rt.y))
 		{
 			return false;
 		}
 		return true;
 	}
-	bool IsIn(int _x, int _y)
+	bool IsIn(int _x, int _y)const
 	{
 	if( (x<= _x) && (_x <= x+w) && 
 		(y<= _y)&&(_y <= y+h))
@@ -167,7 +176,7 @@ return true;
 }
 return false;
 }
-COORD Center()
+COORD Center()const
 {
 return COORD{(short)(x+w/2),(short)(y+h/2)};
 }
