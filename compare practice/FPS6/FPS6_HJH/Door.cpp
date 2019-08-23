@@ -2,6 +2,7 @@
 #include "Door.h"
 
 #include "GameManager.h"
+#include "Player.h"
 
 Door::Door(int x, int y) : Object(x, y)
 , m_Close{
@@ -11,7 +12,7 @@ Door::Door(int x, int y) : Object(x, y)
 			{ '|', 'X', ' ', 'X', '|' },
 			{ 'X', '-', '-', '-', 'X' },
 }
-, m_Open{	// change render 1 -> D
+, m_Open{	
 			{ ' ', 'D', 'D', 'D', ' ' },
 			{ 'D', ' ', ' ', ' ', 'D' },
 			{ 'D', ' ', ' ', ' ', 'D' },
@@ -35,9 +36,13 @@ void Door::Init()
 	m_eState = eDoorState::Close;
 }
 
-void Door::Interaction(class Hero* a_refHero)
+bool Door::Interaction(class Player* a_refHero) // +
 {
-	if (m_eState == eDoorState::Close) { return; }
+	if (m_eState == eDoorState::Close) { return false; }
 
-	GameMng()->StageStart();
+if(IsCross(a_refHero)==true)
+{
+	GameMng()->StageEnd();
+}
+return false;
 }

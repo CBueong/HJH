@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 #include "Ani.h"
 
-// erase default creator Ani()
+
 
 Ani::~Ani()
 {
@@ -14,11 +14,11 @@ void Ani::Resize(int a_nAniTypeCount)
 
 void Ani::Add(int a_nAni, const RenderTile& tile)
 {
-	assert(a_nAni < m_vcAni.size() && "logic error - Call Resize");	// +assert 
+	assert(a_nAni < m_vcAni.size() && "logic error - Call Resize");	
 	m_vcAni[a_nAni].push_back(tile);
 }
 
-void Ani::Add(int a_nAniType, const std::initializer_list<RenderTile>&tiles)	// +
+void Ani::Add(int a_nAniType, const std::initializer_list<RenderTile>&tiles)
 {
 	for(auto& tile : tiles)
 	{
@@ -26,14 +26,14 @@ void Ani::Add(int a_nAniType, const std::initializer_list<RenderTile>&tiles)	// 
 	}
 }
 
-void Ani::SetState(int a_nAni, int a_nCut /*= 0*/)	// rename a_nFrame -> a_nCut
+void Ani::SetState(int a_nAni, int a_nCut /*= 0*/)	
 {
 	m_pCurrentAni = &m_vcAni[a_nAni];
 
 	m_nAniType = a_nAni;
 	m_nCut = a_nCut;
 	m_nNowMaxCut = (int)m_pCurrentAni->size();
-	m_fNowTile = 0.0f;		// +
+	m_fNowTile = 0.0f;	
 }
 
 void Ani::NextCut()
@@ -42,7 +42,7 @@ void Ani::NextCut()
 	m_nCut %= m_nNowMaxCut;
 }
 	
-void Ani::Update(float a_fDeltaTime)	// +
+void Ani::Update(float a_fDeltaTime)
 {
 	m_fNowTile += a_fDeltaTime;
 
@@ -54,7 +54,7 @@ void Ani::Update(float a_fDeltaTime)	// +
 }
 RenderTile* Ani::Get()
 {
-	RenderTile *r =&(*m_pCurrentAni)[m_nCut];	// fix
+	RenderTile *r =&(*m_pCurrentAni)[m_nCut];
 
 	return r;
 }

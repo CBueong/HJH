@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "Define.h"
+#include "SceneManager.h"
 
 void SetCursor(const COORD& a_stPos)
 {

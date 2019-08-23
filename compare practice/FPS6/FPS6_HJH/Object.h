@@ -7,31 +7,41 @@ public:
 	virtual ~Object();
 	virtual eObjectType GetObjectType() const = 0;
 
-	void Update(float a_fDelta);
+bool Update(float a_fDelta);//
 	void Render();
 	void SetMap(char** a_refMap);
+	void RenderClear();
 
 	virtual void Init();
 	virtual void Explosived(class Bomb* a_refBomb);
-	virtual void Interaction(class Hero* a_refHero);
+	virtual bool Interaction(class Player* a_refHero);
 	
-	inline void SetPos(int _x, int _y) { x = _x; y = _y; }
+	inline void SetPos(int _x, int _y) { x = _x; y = _y;rt.x = _x;rt.y=_y; }
+inline bool IsCross(const Object& a_refObj)
+{
+return rt.IsCross(a_refObj.rt);
+}
+inline bool IsCross(Object* a_refObj)
+{
+assert((a_refObj != nullptr) && "arg error");
+return IsCross(*a_refObj);
+}
 
 	virtual Rect GetRendertRect() const;	//+
 
 protected:
-	void Clear();	//+
+
 	virtual void _PreUpdate(float a_fDelta); // 이전단계의 글자 지우기
-	virtual void _Update(float a_fDelta);
+	virtual bool _Update(float a_fDelta);//
 
 public:
 	int x;
 	int y;
-	Rect rt;	//+
+	Rect rt;	
 
 protected:
 	
-	static RenderTile Empty;	//+
+	static RenderTile Empty;	
 	char**	m_refMap = nullptr;
 	RenderTile*	m_pNowAni = nullptr;
 };

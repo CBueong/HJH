@@ -21,7 +21,7 @@ enum class eKey
 	Right,
 	D,
 	Down,
-	SPACE,
+	Space,	// ?
 	Fire,
 
 	Max,
@@ -48,21 +48,20 @@ enum class eScene
 enum class eObjectType
 {
 	None = 0,
-	LevelGap = 1000,
+	RenderDepthGap = 1000,	// change Level -> RenderDepth
 
-	Level1 = LevelGap * 1,
-	Level2 = LevelGap * 2,
-	Level3 = LevelGap * 3,
-	LevelMax = 3,
+	RenderDepth1 = RenderDepthGap * 1,
+	RenderDepth2 = RenderDepthGap * 2,
+	RenderDepth3 = RenderDepthGap * 3,
+	RenderDepthCount = 3,
 
-	Wall = Level1 + 1,
-	Box,
+	Wall = RenderDepth1 + 1,
+	Box = RenderDepth2 +1,
 	Door,
-
-	Item = Level2 + 1,
+	Item,
 	Bomb,
 
-	Player = Level3 + 1,
+	Player = RenderDepth3 + 1,
 	Monster,
 };
 
@@ -86,7 +85,9 @@ enum eGame
 #define SAFE_DELETE(x)		{ if((x) != nullptr ) { delete (x); (x) = nullptr; } }
 #define SAFE_DELETE_ARR(x)	{ if((x) != nullptr ) { delete[] (x); (x) = nullptr; } }
 
-//-using RenderTile = char[TileSize][TileSize];	
+#include "SceneManager.h"
+inline bool IsKeyDown(eKey a_eKey) {return SceneManager::GetKeyState(a_eKey) == eInputState::Down; }//+
+inline bool IsKeyUp(eKey a_eKey) {return SceneManager::GetKeyState(a_eKey) == eInputState::Up; }//+
 
 enum class CURSOR_TYPE { NOCURSOR, SOLIDCURSOR, NORMALCURSOR };
 
@@ -94,7 +95,7 @@ void SetCursor(const COORD& a_stPos);
 void SetCursor(int a_nPosX, int a_nPosY);
 void SetCursorType(CURSOR_TYPE c);
 void SetConsoleSize(int a_nWidth, int a_nHeight, int a_nX = 200, int a_nY = 200);
-// all+ after here 
+
 struct RenderLine	
 {
 	RenderLine() = default;
@@ -110,7 +111,7 @@ struct RenderLine
 	}
 	RenderLine(const char* s)
 	{
-	int nLen =strlen(s);
+	size_t nLen =strlen(s);	// int ->size_t
 	assert(nLen <= TileSize);
 	
 	strcpy_s(c,sizeof(char)*(TileSize+1),s);
@@ -157,4 +158,17 @@ struct Rect
 		}
 		return true;
 	}
+	bool IsIn(int _x, int _y)
+	{
+	if( (x<= _x) && (_x <= x+w) && 
+		(y<= _y)&&(_y <= y+h))
+{
+return true;
+}
+return false;
+}
+COORD Center()
+{
+return COORD{(short)(x+w/2),(short)(y+h/2)};
+}
 };

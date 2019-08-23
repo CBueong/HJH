@@ -4,6 +4,7 @@
 #include "GameManager.h"
 #include "Ani.h"
 // Ani 적용 및 인터페이스 개선
+#include "Player.h"//+
 Item::Item(int x, int y) : Object(x, y), m_pAni(new Ani())
 {
 	int nNum = (rand() % (int)eItem::Max);
@@ -90,19 +91,24 @@ eObjectType Item::GetObjectType() const
 	return eObjectType::Item;
 }
 
-void Item::Interaction(class Hero* a_refHero)
+bool Item::Interaction(class Player* a_refHero)
 {
-	GameMng()->RemoveObject(this);
+if(IsCross(a_refHero)==true)
+{
 	GameMng()->ObtainItem(m_eType);
+return true;
+}
+return false;
 }
 
 void Item::_PreUpdate(float a_fDelta)
 {
-	Clear();
+RenderClear();
 }
 
-void Item::_Update(float a_fDelta)
+bool Item::_Update(float a_fDelta)
 {
 	m_pAni->Update(a_fDelta);
 	m_pNowAni = m_pAni->Get();
+	return false;
 }

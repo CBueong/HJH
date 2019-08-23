@@ -9,5 +9,6 @@ public:
 
 	// Object을(를) 통해 상속됨
 	virtual eObjectType GetObjectType() const override;
-	RenderTile	m_Data;
+	virtual bool Interaction(class Player* a_refHero)override;	//
+		RenderTile	m_Data;
 };
