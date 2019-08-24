@@ -13,6 +13,12 @@
 // void clr(Color _word = Color::white, Color _back = Color::black);
 // void SetDifficult(Difficult _difficulty);
 
+enum {
+
+	consoleSpace_Width = 10,
+	consoleSpace_Height = 5,
+};
+
 enum class Color {
 	black,
 	d_blue,
@@ -47,14 +53,22 @@ enum class scene_t {
 	Field,
 };
 
-static unsigned int X = 10;
-static unsigned int conX = X + (10 * 2);
-static unsigned int Y = 10;
-static unsigned int conY = Y + (5 * 2);
-static unsigned int MINE = 10;
+struct Data {
+	unsigned int x = 10;
+	unsigned int y = 10;
+	unsigned int mine = 10;
+};
 
-void SetConsoleSize(const std::string _width = std::to_string(conX), const std::string _height = std::to_string(conY));
+static Data static_Data;	// 설정 값 저장 하는 곳
+
+static constexpr unsigned int X() { return static_Data.x; }
+static constexpr unsigned int Y() { return static_Data.y; }
+static constexpr unsigned int width() { return(X() * 2) + (consoleSpace_Width * 2); }
+static constexpr unsigned int height() { return(Y() * 2) + (consoleSpace_Height * 2); }
+
+void SetConsoleSize(const std::string _width = std::to_string(static_Data.x), const std::string _height = std::to_string(static_Data.x));
 void SetCursour(char _visible = 0, int _width = 1);
 void dis(int _x = 0, int _Y = 0);
 void clr(Color _word = Color::white, Color _back = Color::black);
 void SetDifficult(Difficult _difficulty);
+

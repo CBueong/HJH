@@ -13,12 +13,21 @@ void SceneOption::Begin() {	// highlight = white , default = d_gray
 
 	SetConsoleSize();
 	system("cls");
-	menu(Color::d_gray);
 
-	clr();dis((conX / 2) - (10), 8);cout << "《    e a s y    》";
+	menu(Color::d_gray);
+	clr();dis((width() / 2) - (10), 8);cout << "《    e a s y    》";
 }
 
-bool SceneOption::Update() { return true; }
+bool SceneOption::Update() {
+
+	if ((GetAsyncKeyState(VK_RETURN) & 0x0001) && (sct == (unsigned int)select::back)) {
+
+		// 설정 값 전달
+
+		manager_instance->SceneChange(scene_t::Intro);
+	}
+	return true;
+}
 
 void SceneOption::Render() {
 
@@ -29,28 +38,28 @@ void SceneOption::Render() {
 		case select::difficult:
 
 			menu(Color::d_gray);
-			menu_diff((Difficult)difficulty);
+			menu_diff();
 			break;
 
 		case select::x:
 			menu(Color::d_gray);
 			clr();
-			dis((conX / 2) - (10), 10);cout << "《  Width        》";
+			dis((width() / 2) - (10), 10);cout << "《  Width        》";
 			break;
 		case select::y:
 			menu(Color::d_gray);
 			clr();
-			dis((conX / 2) - (10), 12);cout << "《  Height       》";
+			dis((width() / 2) - (10), 12);cout << "《  Height       》";
 			break;
 		case select::mine:
 			menu(Color::d_gray);
 			clr();
-			dis((conX / 2) - (10), 14);cout << "《  Mine         》";
+			dis((width() / 2) - (10), 14);cout << "《  Mine         》";
 			break;
 		case select::back:
 			menu(Color::d_gray);
 			clr();
-			dis((conX / 2) - (2), 16);cout << "Back";
+			dis((width() / 2) - (2), 16);cout << "Back";
 			break;
 		}
 	}
@@ -67,13 +76,13 @@ void SceneOption::KeyInput() {
 			if (difficulty > (unsigned int)Difficult::easy) { difficulty--; }
 			break;
 		case select::x:
-			if (X > 1) { X--; };
+			if (data.x > 1) { data.x--; };
 			break;
 		case select::y:
-			if (Y > 1) { Y--; };
+			if (data.y > 1) { data.y--; };
 			break;
 		case select::mine:
-			if (MINE > 1) { MINE--; };
+			if (data.mine > 1) { data.mine--; };
 			break;
 		}
 		refresh = true;
@@ -88,15 +97,15 @@ void SceneOption::KeyInput() {
 			break;
 
 		case select::x:
-			X++;
+			data.x++;
 			break;
 
 		case select::y:
-			Y++;
+			data.y++;
 			break;
 
 		case select::mine:
-			if (mine < X*Y) { MINE++; };
+			if (mine < (width()*Y())) { data.mine++; };
 			break;
 		}
 		refresh = true;
@@ -104,18 +113,15 @@ void SceneOption::KeyInput() {
 
 	if ((GetAsyncKeyState(VK_UP) & 0x0001) || (GetAsyncKeyState('W') & 0x0001)) {
 
-		if (sct > (unsigned int)select::difficult) { sct--; }
+		if (difficulty != (unsigned int)Difficult::custom) { sct = select::difficult; }
+		else if (sct > (unsigned int)select::difficult) { sct--; }
 		refresh = true;
 	}
 
 	if ((GetAsyncKeyState(VK_DOWN) & 0x0001) || (GetAsyncKeyState('S') & 0x0001)) {
-
-		if (sct < (unsigned int)select::back) { sct++; }
+		if (difficulty != (unsigned int)Difficult::custom) { sct = select::back; }
+		else if (sct < select::back) { sct++; }
 		refresh = true;
-	}
-
-	if ((GetAsyncKeyState(VK_RETURN) & 0x0001)&& sct == (unsigned int)select::back) {
-		manager_instance->SceneChange(scene_t::Intro);	
 	}
 }
 
@@ -123,47 +129,46 @@ scene_t SceneOption::get_SceneType() { return scene_t::Option; }
 
 void SceneOption::menu(Color _color) {
 	clr();
-	dis((conX / 2) - (4));cout << "Option";
+	dis((width() / 2) - (4));cout << "Option";
 
 	clr(_color);
-	dis((conX / 2) - (6), 6);cout << "Difficulty ";
-	
-	dis((conX / 2) - (10), 8);cout << "《    e a s y    》";
-	
-	dis((conX / 2) - (10), 10);cout << "《  Width        》";
+	dis((width() / 2) - (6), 6);cout << "Difficulty ";
 
-	dis((conX / 2) - (10), 12);cout << "《  Height       》";
+	//	dis((width() / 2) - (10), 8);cout << "《    e a s y    》";
 
-	dis((conX / 2) - (10), 14);cout << "《  Mine         》";
+	dis((width() / 2) - (10), 10);cout << "《  Width        》";
 
-	dis((conX / 2) - (2), 16);cout << "Back";
+	dis((width() / 2) - (10), 12);cout << "《  Height       》";
 
-	dis((conX) - (11), (conY - 1));cout << "HJH made";
+	dis((width() / 2) - (10), 14);cout << "《  Mine         》";
+
+	dis((width() / 2) - (2), 16);cout << "Back";
+
+	dis((width())-(11), (height() - 1));cout << "HJH made";
+
+	menu_diff();
 }
 
-void SceneOption::menu_diff(Difficult _difficulty) {
+void SceneOption::menu_diff() {
 
-	switch ((Difficult)_difficulty)
+	if (sct == select::difficult) { clr(); }
+
+	switch ((Difficult)difficulty)
 	{
 	case Difficult::easy:
-		clr();
-		dis((conX / 2) - (10), 8);cout << "《    e a s y    》";
+		dis((width() / 2) - (10), 8);cout << "《    e a s y    》";
 		break;
 	case Difficult::normal:
-		clr();
-		dis((conX / 2) - (10), 8);cout << "《  n o r m a l  》";
+		dis((width() / 2) - (10), 8);cout << "《  n o r m a l  》";
 		break;
 	case Difficult::hard:
-		clr();
-		dis((conX / 2) - (10), 8);cout << "《    h a r d    》";
+		dis((width() / 2) - (10), 8);cout << "《    h a r d    》";
 		break;
 	case Difficult::insane:
-		clr();
-		dis((conX / 2) - (10), 8);cout << "《  i n s a n e  》";
+		dis((width() / 2) - (10), 8);cout << "《  i n s a n e  》";
 		break;
 	case Difficult::custom:
-		clr();
-		dis((conX / 2) - (10), 8);cout << "《  c u s t o m  》";
+		dis((width() / 2) - (10), 8);cout << "《  c u s t o m  》";
 		break;
 	}
 }

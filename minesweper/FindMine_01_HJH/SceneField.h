@@ -6,9 +6,14 @@
 #include "Scene.h"
 
 struct shell {
-	bool mine = false;
-	bool swipped = false;	
-	int count = 0;
+	shell() {
+		mine = false;
+		sweeped = false;
+		count = 0;
+	}
+	bool mine;
+	bool sweeped;
+	int count;
 };
 
 class SceneField : public Scene
@@ -16,7 +21,7 @@ class SceneField : public Scene
 public:
 	SceneField(class SceneManager * _instance);
 	virtual~SceneField();
-	
+
 public:
 	//SceneManager* manager_instance = nullptr;
 	shell ** Field = nullptr;

@@ -2,8 +2,6 @@
 #include "Define.h"
 
 
-
-
 void SetConsoleSize(const std::string _width, const std::string _height) {
 
 	std::string command("mode con cols=");

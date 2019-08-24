@@ -6,43 +6,47 @@
 
 SceneField::SceneField(SceneManager * _instance) : Scene(_instance) {
 
-	Field = new shell*[Y];
-	for (int i = 0;i < X;++i) { Field[i] = new shell; }
+	Field = new shell*[Y()];
+	for (int i = 0;i < width();++i) { Field[i] = new shell(); }
 
 }
 
 SceneField::~SceneField() {
 
-	for (int i = 0;i < X;++i) { SAFE_ARR(Field); }
+	for (int i = 0;i < width();++i) { SAFE_ARR(Field); }
 
 	SAFE(Field);
-
 }
 
 void SceneField::Setting() {}//
 
 void SceneField::Begin() {
 
+	SetConsoleSize();
 	system("cls");
 
-	// ¼³Á¤
-
-	dis();cout << "This MineField";
+	dis(width()/2 -7);cout << "This MineField";
 
 	refresh = true;
 }
-bool SceneField::Update() { return true; }
+bool SceneField::Update() {
+	
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x8001) {
+		manager_instance->SceneChange(scene_t::Intro);
+	}
+	return true; 
+}
 void SceneField::Render() {	
 
-	if (refresh) {
+	if (refresh) {		
 
-		dis();
+		for (int y = 0; y < Y();++y) {
 
-		for (int y = 0; y < Y;++y) {
+			dis((width() - X()*2)/2, 5+y);
 
-			for (int x = 0; x < X;++x) {
+			for (int x = 0; x < X();++x) {
 
-				if (!(Field[y][x].swipped)) { cout << "¡á"; }
+				if (!(Field[y][x].sweeped)) { cout << "¡á"; }
 
 				else {
 
@@ -61,7 +65,7 @@ void SceneField::Render() {
 					}
 				}
 			}
-			cout << endl;
+			//cout << endl;
 		}
 	}
 

@@ -16,7 +16,7 @@ SceneManager * SceneManager::manage_instance() { return instance; }
 void SceneManager::release_instance() { SAFE(instance); }
 
 void SceneManager::SceneChange(scene_t _type) {
-	
+
 	SAFE(scene_instance);
 
 	scene_instance = SceneSelect::Select(_type, this);

@@ -13,15 +13,15 @@ void SceneIntro::Begin() {
 	SetConsoleSize();
 	system("cls");
 
-	dis((conX/2)-(5));cout << "IntroScene";
+	dis((width() / 2) - (5));cout << "IntroScene";
 
 	clr(Color::red);
-	dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+	dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
 	clr();
-	dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
-	dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
+	dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+	dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 
-	dis((conX) - (11), 19);cout << "HJH made";
+	dis((width()) - (11), 19);cout << "HJH made";
 }
 bool SceneIntro::Update() {
 
@@ -51,22 +51,22 @@ void SceneIntro::Render() {
 		switch ((select)sct)
 		{
 		case select::start:
-			dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
-			dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
+			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			clr(Color::red);
-			dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
 			break;
 		case select::option:
-			dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
-			dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
+			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			clr(Color::green);
-			dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
 			break;
 		case select::quit:
-			dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
-			dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
 			clr(Color::d_gray);
-			dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
+			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			break;
 		}
 
