@@ -45,6 +45,9 @@
     <ClInclude Include="SceneSelect.h">
       <Filter>소스 파일\Manager\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="SceneOption.h">
+      <Filter>소스 파일\Manager\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -73,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="Define.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneOption.cpp">
+      <Filter>소스 파일\Manager\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

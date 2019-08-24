@@ -2,27 +2,26 @@
 #include "pch.h"
 #include "Define.h"
 #include "SceneManager.h"
-#include "Scene.h"
 #include "SceneField.h"
+#include "Scene.h"
 
 struct shell {
-	bool Mine = false;
+	bool mine = false;
 	bool swipped = false;	
 	int count = 0;
 };
 
 class SceneField : public Scene
 {
-	shell ** Field = nullptr;
-
 public:
 	SceneField(class SceneManager * _instance);
 	virtual~SceneField();
 	
 public:
 	//SceneManager* manager_instance = nullptr;
-	// ¸Ê ±¸¼º Á¤º¸
+	shell ** Field = nullptr;
 
+	bool refresh = false;
 
 	void Setting();
 

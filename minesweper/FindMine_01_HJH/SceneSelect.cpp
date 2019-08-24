@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "SceneSelect.h"
 #include "SceneIntro.h"
+#include "SceneOption.h"
 #include "SceneField.h"
 
 Scene * SceneSelect::Select(scene_t _type,class SceneManager * _instance) {
@@ -13,6 +14,7 @@ Scene * SceneSelect::Select(scene_t _type,class SceneManager * _instance) {
 	switch (_type)
 	{
 	case scene_t::Intro: scene_instance = new SceneIntro(_instance); break;
+	case scene_t::Option: scene_instance = new SceneOption(_instance); break;
 	case scene_t::Field: scene_instance = new SceneField(_instance);break;
 	default: assert(false && "Select _instance error");break;
 	}

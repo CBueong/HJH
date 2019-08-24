@@ -10,17 +10,18 @@ SceneIntro::~SceneIntro() {}
 
 void SceneIntro::Begin() {
 
-	SetDifficult(Difficult::easy);
-
+	SetConsoleSize();
 	system("cls");
 
-	dis(15);cout << "IntroScene";
+	dis((conX/2)-(5));cout << "IntroScene";
 
-	dis(12, 6);clr(Color::red);cout << "¡¶ Find Mine ¡·";clr();
-	dis(12, 8);cout << "¡¶ Option    ¡·";
-	dis(12, 10);cout << "¡¶ Run       ¡·";
+	clr(Color::red);
+	dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+	clr();
+	dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+	dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 
-	dis(31, 19);cout << "HJH made";
+	dis((conX) - (11), 19);cout << "HJH made";
 }
 bool SceneIntro::Update() {
 
@@ -30,7 +31,7 @@ bool SceneIntro::Update() {
 		{
 		case select::start: manager_instance->SceneChange(scene_t::Field);
 			break;
-		case select::option:
+		case select::option: manager_instance->SceneChange(scene_t::Option);
 			break;
 		case select::quit: return false;
 			break;
@@ -50,22 +51,22 @@ void SceneIntro::Render() {
 		switch ((select)sct)
 		{
 		case select::start:
-			dis(12, 8);cout << "¡¶ Option    ¡·";
-			dis(12, 10);cout << "¡¶ Run       ¡·";
+			dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+			dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			clr(Color::red);
-			dis(12, 6);cout << "¡¶ Find Mine ¡·";
+			dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
 			break;
 		case select::option:
-			dis(12, 6);cout << "¡¶ Find Mine ¡·";
-			dis(12, 10);cout << "¡¶ Run       ¡·";
+			dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+			dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			clr(Color::green);
-			dis(12, 8);cout << "¡¶ Option    ¡·";
+			dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
 			break;
 		case select::quit:
-			dis(12, 6);cout << "¡¶ Find Mine ¡·";
-			dis(12, 8);cout << "¡¶ Option    ¡·";
+			dis((conX / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+			dis((conX / 2) - (8), 8);cout << "¡¶ Option    ¡·";
 			clr(Color::d_gray);
-			dis(12, 10);cout << "¡¶ Run       ¡·";
+			dis((conX / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			break;
 		}
 

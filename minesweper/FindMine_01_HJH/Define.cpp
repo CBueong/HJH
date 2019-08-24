@@ -42,10 +42,6 @@ void SetDifficult(Difficult _difficulty) {
 	switch (_difficulty)
 	{
 	case Difficult::easy:
-		Data::difficulty = Difficult::easy;
-		Data::x = 40;
-		Data::y = 20;
-		Data::mine = 10;
 
 		break;
 	case Difficult::normal:

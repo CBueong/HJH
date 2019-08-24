@@ -7,25 +7,11 @@
 #define SAFE(x) { if(x != nullptr){ delete x; x= nullptr;} }
 #define SAFE_ARR(x) { if(x != nullptr){ delete[] x; x= nullptr;} }
 
-static struct Data;
-enum class Color;
-enum class Difficult;
-enum class scene_t;
-
-void SetConsoleSize(const std::string _width = "40", const std::string _height = "20");
-void SetCursour(char _visible = 0, int _width = 1);
-void dis(int _x = 0, int _Y = 0);
-void clr(Color _word = Color::white, Color _back = Color::black);
-void SetDifficult(Difficult _difficulty);
-
-
-static struct Data {
-
-	static Difficult difficulty;
-	static unsigned int x;
-	static unsigned int y;
-	static unsigned int mine;
-};
+// void SetConsoleSize(const std::string _width = "40", const std::string _height = "20");
+// void SetCursour(char _visible = 0, int _width = 1);
+// void dis(int _x = 0, int _Y = 0);
+// void clr(Color _word = Color::white, Color _back = Color::black);
+// void SetDifficult(Difficult _difficulty);
 
 enum class Color {
 	black,
@@ -57,5 +43,18 @@ enum class Difficult {
 enum class scene_t {
 	Null,
 	Intro,
+	Option,
 	Field,
 };
+
+static unsigned int X = 10;
+static unsigned int conX = X + (10 * 2);
+static unsigned int Y = 10;
+static unsigned int conY = Y + (5 * 2);
+static unsigned int MINE = 10;
+
+void SetConsoleSize(const std::string _width = std::to_string(conX), const std::string _height = std::to_string(conY));
+void SetCursour(char _visible = 0, int _width = 1);
+void dis(int _x = 0, int _Y = 0);
+void clr(Color _word = Color::white, Color _back = Color::black);
+void SetDifficult(Difficult _difficulty);

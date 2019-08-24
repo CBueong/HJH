@@ -160,6 +160,7 @@
     <ClInclude Include="SceneField.h" />
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneOption.h" />
     <ClInclude Include="SceneSelect.h" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +177,7 @@
     <ClCompile Include="SceneField.cpp" />
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SceneOption.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

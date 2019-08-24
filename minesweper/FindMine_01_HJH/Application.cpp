@@ -16,7 +16,7 @@ void Application::Run() {
 		KeyInput();
 	}
 
-	dis(0,20);system("pause");
+	dis(0,19);system("pause");
 }
 
 void Application::Begin() { GET_SM()->Begin(); }
