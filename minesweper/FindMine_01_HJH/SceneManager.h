@@ -1,4 +1,7 @@
 #pragma once
+#include "pch.h"
+#include "Define.h"
+#include "SceneManager.h"
 #include "SceneSelect.h"
 #include "Scene.h"
 
@@ -18,15 +21,20 @@ public:
 	static SceneManager * manage_instance();
 	static void release_instance();
 
+private:
+	class Scene* scene_instance = nullptr;
+
 public:
 	scene_t now = scene_t::Null;
 
+	void SceneChange(scene_t _type);
+
 	void Begin();
-	void Update();
+	bool Update();
 	void Render();
 	void KeyInput();
 };
 
-#define NEW_SM() ( create_instance() )
-#define GET_SM() ( manage_instance() )
-#define DEL_SM() ( release_instance() )
+#define NEW_SM() ( SceneManager::create_instance() )
+#define GET_SM() ( SceneManager::manage_instance() )
+#define DEL_SM() ( SceneManager::release_instance() )

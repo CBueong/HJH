@@ -1,7 +1,10 @@
 #include "pch.h"
+#include "Define.h"
 #include "SceneManager.h"
+#include "SceneSelect.h"
+#include "Scene.h"
 
-SceneManager::SceneManager(){}
+SceneManager::SceneManager() {}
 SceneManager::~SceneManager(){}
 
 void SceneManager::create_instance() {
@@ -12,10 +15,20 @@ SceneManager * SceneManager::manage_instance() { return instance; }
 
 void SceneManager::release_instance() { SAFE(instance); }
 
-void SceneManager::Begin() {
-	now = scene_t::Intro;
+void SceneManager::SceneChange(scene_t _type) {
+	
+	SAFE(scene_instance);
 
+	scene_instance = SceneSelect::Select(_type, this);
+
+	scene_instance->Begin();
 }
-void SceneManager::Update() {}
-void SceneManager::Render() {}
-void SceneManager::KeyInput() {}
+
+void SceneManager::Begin() {
+
+	now = scene_t::Intro;
+	SceneChange(now);
+}
+bool SceneManager::Update() { return scene_instance->Update(); }
+void SceneManager::Render() { scene_instance->Render(); }
+void SceneManager::KeyInput() { scene_instance->KeyInput(); }

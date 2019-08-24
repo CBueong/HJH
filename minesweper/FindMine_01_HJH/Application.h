@@ -1,5 +1,4 @@
 #pragma once
-#include "SceneManager.h"
 
 class Application
 {
@@ -12,7 +11,7 @@ public:
 
 	void Run();
 	void Begin();
-	void Update();
+	bool Update();
 	void Render();
 	void KeyInput();
 };

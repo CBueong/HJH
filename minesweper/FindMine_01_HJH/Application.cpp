@@ -1,27 +1,28 @@
 #include "pch.h"
 #include "Application.h"
+#include "SceneManager.h"
 
-Application::Application() {}
+Application::Application() { NEW_SM(); }
 
-Application::~Application() {}
+Application::~Application() { DEL_SM(); }
 
 void Application::Run() {
 
 	Begin();
 
-	while (Launch) {
+	while (Update()) {
 
 		Render();
 		KeyInput();
-		Update();
 	}
 
+	dis(0,20);system("pause");
 }
 
-void Application::Begin() {}
+void Application::Begin() { GET_SM()->Begin(); }
 
-void Application::Update() {}
+bool Application::Update() { return GET_SM()->Update(); }
 
-void Application::Render() {}
+void Application::Render() { GET_SM()->Render(); }
 
-void Application::KeyInput() {}
+void Application::KeyInput() { GET_SM()->KeyInput(); }

@@ -71,5 +71,8 @@
     <ClCompile Include="SceneSelect.cpp">
       <Filter>소스 파일\Manager\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Define.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

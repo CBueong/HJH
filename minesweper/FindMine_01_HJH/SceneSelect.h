@@ -1,12 +1,14 @@
 #pragma once
+#include "pch.h"
 #include "Define.h"
+#include "SceneManager.h"
+#include "Scene.h"
+#include "SceneSelect.h"
 #include "SceneIntro.h"
 #include "SceneField.h"
-#include "Scene.h"
-#include "SceneManager.h"
 
 class SceneSelect{
 public:
-	Scene * Select(scene_t _type, SceneManager * _instance);	
+	static class Scene * Select(scene_t _type, class SceneManager * _instance);	
 };
 

@@ -5,6 +5,10 @@
 
 int main() {
 
+	system("title Mine Sweeper HJH");
+	SetConsoleSize();
+	SetCursour(false);
+
 	Application * App = new Application;
 
 	App->Run();
