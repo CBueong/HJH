@@ -61,6 +61,8 @@ void SceneOption::Render() {
 
 			break;
 		}
+		dis(0, height() - 2);cout << this;
+		dis(0, height() - 1);cout << manager_instance;
 	}
 	refresh = false;
 }

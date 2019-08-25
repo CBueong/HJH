@@ -17,7 +17,7 @@ void SceneIntro::Begin() {
 
 bool SceneIntro::Update() {
 
-	if (GetAsyncKeyState(VK_RETURN) & 0x8001) {
+	if (GetAsyncKeyState(VK_RETURN) & 0x0001) {
 
 		switch ((select)sct)
 		{
@@ -78,5 +78,7 @@ void SceneIntro::menu(Color _t, Color _b) {
 
 	dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 
+	dis(0, height() - 2);cout << this;
+	dis(0, height() - 1);cout << manager_instance;
 	dis((width()) - (11), height()-1);cout << "HJH made";
 }

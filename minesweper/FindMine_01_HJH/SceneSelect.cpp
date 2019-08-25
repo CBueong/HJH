@@ -18,5 +18,6 @@ Scene * SceneSelect::Select(scene_t _type, class SceneManager * _instance) {
 	case scene_t::Field: 	scene_instance = new SceneField(_instance);break;
 	default:				scene_instance = new SceneIntro(_instance); break; // anyware launch
 	}
+
 	return scene_instance;
 }

@@ -9,6 +9,7 @@ Application::~Application() { DEL_SM(); }
 void Application::Run() {
 
 	Begin();
+	srand(time(NULL));
 
 	while (Update()) {
 

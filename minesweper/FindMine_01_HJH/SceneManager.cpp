@@ -19,7 +19,7 @@ void SceneManager::SceneChange(scene_t _type) {
 
 	SAFE(scene_instance);
 
-	scene_instance = SceneSelect::Select(_type, this);
+	scene_instance = SceneSelect::Select(_type, this);	
 
 	scene_instance->Begin();
 }
