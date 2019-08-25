@@ -10,33 +10,21 @@ SceneIntro::~SceneIntro() {}
 
 void SceneIntro::Begin() {
 
-	SetConsoleSize();
 	system("cls");
-
-	dis((width() / 2) - (5));cout << "IntroScene";
-
-	clr(Color::red);
-	dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
-	clr();
-	dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
-	dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
-
-	dis((width()) - (11), 19);cout << "HJH made";
+	SetConsoleSize();
+	menu();
 }
+
 bool SceneIntro::Update() {
 
 	if (GetAsyncKeyState(VK_RETURN) & 0x8001) {
 
 		switch ((select)sct)
 		{
-		case select::start: manager_instance->SceneChange(scene_t::Field);
-			break;
-		case select::option: manager_instance->SceneChange(scene_t::Option);
-			break;
-		case select::quit: return false;
-			break;
-		default: sct = (int)select::start;
-			break;
+		case select::start:		manager_instance->SceneChange(scene_t::Field);	break;
+		case select::option:	manager_instance->SceneChange(scene_t::Option);	break;
+		case select::quit:		return false;									break;
+		default:				sct = (int)select::start;						break;
 		}
 	}
 	return true;
@@ -46,31 +34,26 @@ void SceneIntro::Render() {
 
 	if (refresh) {
 
-		clr();
-
 		switch ((select)sct)
 		{
 		case select::start:
-			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
-			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
-			clr(Color::red);
+			menu();
+			clr(Color::d_red);
 			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
 			break;
+
 		case select::option:
-			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
-			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
-			clr(Color::green);
+			menu();
+			clr(Color::d_green);
 			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
 			break;
+
 		case select::quit:
-			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
-			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+			menu();
 			clr(Color::d_gray);
 			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			break;
-		}
-
-		clr();
+		}		
 	}
 	refresh = false;
 }
@@ -83,3 +66,17 @@ void SceneIntro::KeyInput() {
 
 scene_t SceneIntro::get_SceneType() { return scene_t::Intro; }
 
+void SceneIntro::menu(Color _t, Color _b) {
+
+	clr(_t, _b);
+
+	dis((width() / 2) - (5));cout << "IntroScene";
+
+	dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
+
+	dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
+
+	dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
+
+	dis((width()) - (11), height()-1);cout << "HJH made";
+}

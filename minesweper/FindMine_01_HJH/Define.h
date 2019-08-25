@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Windows.h>
+#include <cstdlib>
+#include <ctime>
 #include <cassert>
 #include <string>
 
@@ -17,6 +19,7 @@ enum {
 
 	consoleSpace_Width = 10,
 	consoleSpace_Height = 5,
+
 };
 
 enum class Color {
@@ -61,14 +64,13 @@ struct Data {
 
 static Data static_Data;	// 설정 값 저장 하는 곳
 
-static constexpr unsigned int X() { return static_Data.x; }
-static constexpr unsigned int Y() { return static_Data.y; }
-static constexpr unsigned int width() { return(X() * 2) + (consoleSpace_Width * 2); }
-static constexpr unsigned int height() { return(Y() * 2) + (consoleSpace_Height * 2); }
+static unsigned int X() { return static_Data.x; }
+static unsigned int Y() { return static_Data.y; }
+static unsigned int width() { return(X() * 2) + (consoleSpace_Width * 2); }
+static unsigned int height() { return(Y() * 2) + (consoleSpace_Height * 2); }
 
-void SetConsoleSize(const std::string _width = std::to_string(static_Data.x), const std::string _height = std::to_string(static_Data.x));
+void SetConsoleSize(const std::string _width = std::to_string(width()), const std::string _height = std::to_string(height()));
 void SetCursour(char _visible = 0, int _width = 1);
 void dis(int _x = 0, int _Y = 0);
 void clr(Color _word = Color::white, Color _back = Color::black);
 void SetDifficult(Difficult _difficulty);
-

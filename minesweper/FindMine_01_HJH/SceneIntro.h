@@ -6,20 +6,23 @@
 #include "SceneIntro.h"
 class SceneIntro : public Scene
 {
-	enum class select {
-		start,
-		option,
-		quit,
+	enum select {
+		start,	// find mine
+		option,	// option
+		quit,	// run
 	};
 
 public:
 	SceneIntro(class SceneManager * _instance);
 	virtual~SceneIntro();
 
+private:
+	void menu(Color _t = Color::white, Color _b = Color::black);
+
 public:
 	//SceneManager* manager_instance = nullptr;
-	unsigned int sct = (int)select::start;
-	bool refresh = false;
+	//bool refresh = false;
+	unsigned int sct = select::start;
 
 	virtual void Begin();
 	virtual bool Update();

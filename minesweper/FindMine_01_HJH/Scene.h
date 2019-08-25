@@ -11,6 +11,7 @@ public:
 
 public:
 	SceneManager* manager_instance = nullptr;
+	bool refresh = true;
 
 	virtual void Begin();
 	virtual bool Update() = 0;
