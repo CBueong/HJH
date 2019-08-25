@@ -11,6 +11,8 @@ int main() {
 
 	Application * App = new Application;
 
+
+
 	App->Run();
 
 	SAFE(App);

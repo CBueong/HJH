@@ -33,14 +33,14 @@ public:
 private:
 	shell ** Field;
 	POINT cur;
-		unsigned int click;
+	unsigned int click;
 
 	void Setting(int _x, int _y);		// Field 초기화
 	shell_t check(int _x, int _y);
 	void draw();
 	void draw_f(int _x, int _y);
 	void sweepping(int _x, int _y);		// main 기능
-	void stepped(bool _step);			// gameover
+	void End(bool _result);			// gameover
 
 public:
 	//SceneManager* manager_instance = nullptr;

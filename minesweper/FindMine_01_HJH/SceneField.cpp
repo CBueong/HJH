@@ -33,6 +33,22 @@ bool SceneField::Update() {
 	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
 		manager_instance->SceneChange(scene_t::Intro);
 	}
+
+	if (refresh) {
+
+		unsigned int count = 0;
+
+		for (int y = 0; y < Y(); ++y) {
+			for (int x = 0; x < X(); ++x) {
+				if (Field[y][x].sweeped == true) {
+					count++;
+				}
+			}
+		}
+
+		if (count == (X()*Y()) - static_Data.mine) { End(true); }		
+	}// win condition check
+
 	return true;
 } // Update
 
@@ -51,12 +67,10 @@ void SceneField::KeyInput() {
 
 	if (GetAsyncKeyState('E') & 0x0001) {
 
-		if (click == 0) { Setting(cur.x, cur.y); }	// 처음 클릭시 셋팅
+		if (click == 0) { Setting(cur.x, cur.y); }	// only first click
 
-		stepped((Field[cur.y][cur.x].type == shell_t::mine));
-
-		Field[cur.y][cur.x].sweeped = true;
-		//sweepping(cur.x, cur.y);
+		//Field[cur.y][cur.x].sweeped = true;		
+		sweepping(cur.x, cur.y);
 		click++;
 
 		refresh = true;
@@ -213,87 +227,117 @@ void SceneField::draw_f(int _x, int _y) {
 
 void SceneField::sweepping(int _x, int _y) {
 
+	if (Field[_y][_x].flag) { return; }
+	// flag can not sweep
 
+	if (Field[_y][_x].sweeped == false) {
 
+		if (Field[_y][_x].type == shell_t::empty) {
 
-	//if (!Field[_y][_x].sweeped) {
+			Field[_y][_x].sweeped = true;
+			//sweep here
 
-	//	if (Field[_y][_x].type == shell_t::empty) {
+			for (int y = _y - 1; y <= _y + 1; ++y) {
+				for (int x = _x - 1; x <= _x + 1; ++x) {
 
-	//		for (int y = _y - 1; y <= _y + 1; ++y) {
-	//			for (int x = _x - 1; x <= _x + 1; ++x) {
+					if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+						sweepping(x, y);
+					}//chain sweep
+				}
+			}
+		}// empty
 
-	//				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
-	//					if (!Field[y][x].sweeped) {
-	//						Field[y][x].sweeped = true;
-	//						sweepping(x, y);
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}// empty
+		else if (Field[_y][_x].type == shell_t::mine) { End(false); }
+		// mine
 
-	//	else if (Field[_y][_x].type == shell_t::mine) { stepped(true); }	// mine
+		else {
+			if ((0 <= _x) && (_x < X()) && (0 <= _y) && (_y < Y())) {
+				Field[_y][_x].sweeped = true;
+			}
+		}// empty near mine
 
-	//	else { Field[_y][_x].sweeped = true; }	//	mine near empty
-	//}// not sweep 
+	}// sweep false
 
-	//else {
+	else {
+		unsigned flip = 0;
 
-	//	bool flip = false;
+		for (int y = _y - 1; y <= _y + 1; ++y) {
+			for (int x = _x - 1; x <= _x + 1; ++x) {
+				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+					if (Field[y][x].flag) { flip++; break; }
+				}
+			}
+		}// check flag to flip
 
-	//	for (int y = _y - 1; y <= _y + 1; ++y) {
-	//		for (int x = _x - 1; x <= _x + 1; ++x) {
-	//			if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
-	//				if (!Field[y][x].sweeped) {
-	//					flip = true;
-	//					break;
-	//				}
-	//			}
-	//		}
-	//	}// search flag
+		if (flip >= (unsigned int)Field[_y][_x].type) {
 
-	//	if (flip) {	// near flag on
+			for (int y = _y - 1; y <= _y + 1; ++y) {
+				for (int x = _x - 1; x <= _x + 1; ++x) {
+					if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+						if (!Field[y][x].sweeped) { sweepping(x, y); }
+					}//chain sweep  (can sweepping mine shell cause not empty)
+				}
+			}
+		}//flip
 
-	//		for (int y = _y - 1; y <= _y + 1; ++y) {
-	//			for (int x = _x - 1; x <= _x + 1; ++x) {
+	}// sweep true
 
-	//				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
-	//					if (!Field[y][x].sweeped && !Field[y][x].flag) {	// not sweep and flip
-	//						Field[y][x].sweeped = true;
-	//						stepped(Field[y][x].type == shell_t::mine);	// sweep 하지않은 곳에서 깃발이 없는 곳을 sweep 할때 mine 이면
-	//						sweepping(x, y);
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}
-	//}// sweeped and flag sweepping
-
+	if ((Field[cur.y][cur.x].type == shell_t::mine)) { End(false); }
+	// sweep mine;;
 }
 
-void SceneField::stepped(bool _step) {
+void SceneField::End(bool _result) {
 
-	if (_step) {
+	if (_result) {
+
 		for (int y = 0; y < Y(); ++y) {
 
 			for (int x = 0; x < X(); ++x) {
 
+				clr(Color::red, Color::white);
+
 				if (Field[y][x].type == shell_t::mine) {
 
 					dis(((width() - X() * 2) / 2) + x * 2, 5 + y);
-					clr(Color::black, Color::red);
+					cout << "Ｘ";
+				}
+			}
+		} // show mine
+		dis(width() / 2 - 10, Y() + 7);
+		clr(Color::white);
+		cout << "이 땅은 나의 것이다.";
+	}
+
+	else {
+
+		for (int y = 0; y < Y(); ++y) {
+
+			for (int x = 0; x < X(); ++x) {
+
+				clr(Color::red, Color::white);
+
+				if (Field[y][x].type == shell_t::mine) {
+
+					dis(((width() - X() * 2) / 2) + x * 2, 5 + y);
 					cout << "⊙";
 				}
 			}
-		}
-		clr();
-		dis(0, height() - 2);
-		system("pause");
+		} // show mine
 
-		manager_instance->SceneChange(scene_t::Intro);
-		// 아무것도 초기화 되지 않음
+		dis(width() / 2 - 5, Y() + 7);
+		clr(Color::red);
+		cout << "객사했다.";
 	}
+
+	clr();
+
+	dis(width() / 2 - 5, Y() + 9);
+	cout << "클릭횟수 : " << click;
+
+	dis(0, height() - 2);
+	system("pause");
+
+	manager_instance->SceneChange(scene_t::Intro);// throw
 }
 
 /*
@@ -310,10 +354,8 @@ void SceneField::stepped(bool _step) {
 
 4. sweep
 - 클릭했던 곳 주변에 지뢰가 없으면 모두 sweep 한다
-- 또 그 주변이 빈칸이면 '4' 반복
-
-- 주변에 지뢰가 있으면 더이상 sweep 하지않는다
-- 지뢰일 경우 '6번' 순서로
+- 또 그 주변이 빈칸이면 '4번' 반복
+- 주변에 지뢰가 있으면 더 이상 sweep 하지않는다
 
 - sweep 되어있고 지뢰가 근처에있는 숫자칸 이면
 주변에 깃발이 있는지 확인한다
