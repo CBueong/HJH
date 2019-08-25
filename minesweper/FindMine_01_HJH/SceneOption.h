@@ -23,7 +23,7 @@ class SceneOption :
 	bool custom = false;
 
 	void menu(Color _t = Color::white, Color _b = Color::black);
-	void menu_diff();
+	void menu_diff(Color _t, Color _b);
 
 public:
 	SceneOption(class SceneManager* _instance);

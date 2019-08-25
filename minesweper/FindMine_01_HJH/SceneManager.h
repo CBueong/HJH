@@ -26,6 +26,7 @@ private:
 
 public:
 	scene_t now = scene_t::Null;
+	Data data{ 10,10,10 };
 
 	void SceneChange(scene_t _type);
 

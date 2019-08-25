@@ -11,6 +11,7 @@ SceneIntro::~SceneIntro() {}
 void SceneIntro::Begin() {
 
 	system("cls");
+	static_Data = manager_instance->data;
 	SetConsoleSize();
 	menu();
 }

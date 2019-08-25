@@ -34,6 +34,7 @@ private:
 	shell ** Field;
 	POINT cur;
 	unsigned int click;
+	bool end = false;
 
 	void Setting(int _x, int _y);		// Field √ ±‚»≠
 	shell_t check(int _x, int _y);

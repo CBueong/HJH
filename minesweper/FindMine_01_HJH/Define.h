@@ -18,7 +18,7 @@
 enum {
 
 	consoleSpace_Width = 10,
-	consoleSpace_Height = 5,
+	consoleSpace_Height = 10,
 
 };
 
@@ -57,17 +57,17 @@ enum class scene_t {
 };
 
 struct Data {
-	unsigned int x = 10;
-	unsigned int y = 10;
-	unsigned int mine = 10;
+	unsigned int x;
+	unsigned int y;
+	unsigned int mine;
 };
 
-static Data static_Data;	// 설정 값 저장 하는 곳
+static inline Data static_Data{ 10,10,10 };	// 설정 값 저장 하는 곳
 
-static unsigned int X() { return static_Data.x; }
-static unsigned int Y() { return static_Data.y; }
-static unsigned int width() { return(X() * 2) + (consoleSpace_Width * 2); }
-static unsigned int height() { return(Y() * 2) + (consoleSpace_Height * 2); }
+static inline unsigned int X() { return static_Data.x; }
+static inline unsigned int Y() { return static_Data.y; }
+static inline unsigned int width() { return(X() * 2) + (consoleSpace_Width * 2); }
+static inline unsigned int height() { return(Y() + (consoleSpace_Height * 2)); }
 
 void SetConsoleSize(const std::string _width = std::to_string(width()), const std::string _height = std::to_string(height()));
 void SetCursour(char _visible = 0, int _width = 1);

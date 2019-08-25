@@ -6,8 +6,7 @@
 
 SceneField::SceneField(SceneManager * _instance) : Scene(_instance) {
 
-
-
+	static_Data = manager_instance->data;
 	Field = new shell*[Y()];
 	for (int i = 0;i < Y();++i) { Field[i] = new shell[X()]; }
 }
@@ -46,8 +45,10 @@ bool SceneField::Update() {
 			}
 		}
 
-		if (count == (X()*Y()) - static_Data.mine) { End(true); }		
+		if (count == (X()*Y()) - static_Data.mine) { End(true); }
 	}// win condition check
+
+	if (end) { manager_instance->SceneChange(scene_t::Intro); }
 
 	return true;
 } // Update
@@ -303,9 +304,9 @@ void SceneField::End(bool _result) {
 				}
 			}
 		} // show mine
-		dis(width() / 2 - 10, Y() + 7);
+		dis(width() / 2 - 2, Y() + 7);
 		clr(Color::white);
-		cout << "ÀÌ ¶¥Àº ³ªÀÇ °ÍÀÌ´Ù.";
+		cout << "»Ñµí";
 	}
 
 	else {
@@ -337,7 +338,8 @@ void SceneField::End(bool _result) {
 	dis(0, height() - 2);
 	system("pause");
 
-	manager_instance->SceneChange(scene_t::Intro);// throw
+	end = true;
+	//manager_instance->SceneChange(scene_t::Intro);
 }
 
 /*
