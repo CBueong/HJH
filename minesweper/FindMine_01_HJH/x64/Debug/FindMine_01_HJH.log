@@ -1,16 +1,21 @@
 ﻿  SceneField.cpp
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(10): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(15): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(68): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(70): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(74): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(12): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(17): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(73): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
 d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(75): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(82): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(83): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(111): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(113): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(129): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(133): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(202): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(204): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(79): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(80): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(87): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(88): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(116): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(118): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(131): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(146): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(150): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(278): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(280): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  SceneIntro.cpp
+  SceneOption.cpp
+  코드를 생성하고 있습니다...
+  LINK : D:\5...Operation\Programming\Github\HJH\minesweper\x64\Debug\FindMine_01_HJH.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   FindMine_01_HJH.vcxproj -> D:\5...Operation\Programming\Github\HJH\minesweper\x64\Debug\FindMine_01_HJH.exe

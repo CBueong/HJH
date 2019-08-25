@@ -62,7 +62,7 @@ void SceneIntro::KeyInput() {
 
 	if ((GetAsyncKeyState(VK_DOWN) & 0x0001) || (GetAsyncKeyState('S') & 0x0001)) { if (sct < (int)select::quit) { sct++;refresh = true; } }
 	if ((GetAsyncKeyState(VK_UP) & 0x0001) || (GetAsyncKeyState('W') & 0x0001)) { if (sct > (int)select::start) { sct--;refresh = true; } }
-}
+ }
 
 scene_t SceneIntro::get_SceneType() { return scene_t::Intro; }
 
@@ -78,7 +78,7 @@ void SceneIntro::menu(Color _t, Color _b) {
 
 	dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 
-	dis(0, height() - 2);cout << this;
-	dis(0, height() - 1);cout << manager_instance;
+	dis(0, height() - 2);cout << "scene   :" << this;
+	dis(0, height() - 1);cout << "manager :" << manager_instance;
 	dis((width()) - (11), height()-1);cout << "HJH made";
 }

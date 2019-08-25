@@ -6,6 +6,8 @@
 
 SceneField::SceneField(SceneManager * _instance) : Scene(_instance) {
 
+
+
 	Field = new shell*[Y()];
 	for (int i = 0;i < Y();++i) { Field[i] = new shell[X()]; }
 }
@@ -17,6 +19,9 @@ SceneField::~SceneField() {
 }
 
 void SceneField::Begin() {
+
+	cur.x = 0, cur.y = 0;
+	click = 0;
 
 	system("cls");
 	SetConsoleSize();
@@ -35,8 +40,8 @@ void SceneField::Render() {
 
 	if (refresh) {
 		draw();
-		dis(0, height() - 2);cout << this;
-		dis(0, height() - 1);cout << manager_instance;
+		dis(0, height() - 2);cout << "scene   :" << this;
+		dis(0, height() - 1);cout << "manager :" << manager_instance;
 	}
 
 	refresh = false;
@@ -51,7 +56,7 @@ void SceneField::KeyInput() {
 		stepped((Field[cur.y][cur.x].type == shell_t::mine));
 
 		Field[cur.y][cur.x].sweeped = true;
-		//sweeping(cur.x, cur.y);
+		//sweepping(cur.x, cur.y);
 		click++;
 
 		refresh = true;
@@ -102,9 +107,9 @@ void SceneField::Setting(int _x, int _y) {
 		int x = rand() % X();
 		int y = rand() % Y();
 
-		if (Field[y][x].type != shell_t::mine && !(x == _x && y == _y)) {
-			// 클릭한 위치가 아니면서 지뢰가 아닐 때
-			Field[rand() % Y()][rand() % X()].type = shell_t::mine; count--;
+		if (Field[y][x].type != shell_t::mine && (x != _x && y != _y)) {
+
+			Field[y][x].type = shell_t::mine; count--;
 		}
 	}
 
@@ -117,7 +122,19 @@ void SceneField::Setting(int _x, int _y) {
 	}
 } // Setting
 
-shell_t SceneField::check(int _x, int _y) { return shell_t::empty; }
+shell_t SceneField::check(int _x, int _y) {
+
+	unsigned int count = 0;
+
+	for (int y = _y - 1; y <= _y + 1; ++y) {
+		for (int x = _x - 1; x <= _x + 1; ++x) {
+			if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+				if (Field[y][x].type == shell_t::mine) { count++; }
+			}
+		}
+	}
+	return (shell_t)count;
+}// check near mine count
 
 void SceneField::draw() {
 
@@ -194,7 +211,66 @@ void SceneField::draw_f(int _x, int _y) {
 	}
 } // draw_f
 
-void SceneField::sweeping(int _x, int _y) {}
+void SceneField::sweepping(int _x, int _y) {
+
+
+
+
+	//if (!Field[_y][_x].sweeped) {
+
+	//	if (Field[_y][_x].type == shell_t::empty) {
+
+	//		for (int y = _y - 1; y <= _y + 1; ++y) {
+	//			for (int x = _x - 1; x <= _x + 1; ++x) {
+
+	//				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+	//					if (!Field[y][x].sweeped) {
+	//						Field[y][x].sweeped = true;
+	//						sweepping(x, y);
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}// empty
+
+	//	else if (Field[_y][_x].type == shell_t::mine) { stepped(true); }	// mine
+
+	//	else { Field[_y][_x].sweeped = true; }	//	mine near empty
+	//}// not sweep 
+
+	//else {
+
+	//	bool flip = false;
+
+	//	for (int y = _y - 1; y <= _y + 1; ++y) {
+	//		for (int x = _x - 1; x <= _x + 1; ++x) {
+	//			if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+	//				if (!Field[y][x].sweeped) {
+	//					flip = true;
+	//					break;
+	//				}
+	//			}
+	//		}
+	//	}// search flag
+
+	//	if (flip) {	// near flag on
+
+	//		for (int y = _y - 1; y <= _y + 1; ++y) {
+	//			for (int x = _x - 1; x <= _x + 1; ++x) {
+
+	//				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
+	//					if (!Field[y][x].sweeped && !Field[y][x].flag) {	// not sweep and flip
+	//						Field[y][x].sweeped = true;
+	//						stepped(Field[y][x].type == shell_t::mine);	// sweep 하지않은 곳에서 깃발이 없는 곳을 sweep 할때 mine 이면
+	//						sweepping(x, y);
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//}// sweeped and flag sweepping
+
+}
 
 void SceneField::stepped(bool _step) {
 
@@ -215,7 +291,39 @@ void SceneField::stepped(bool _step) {
 		dis(0, height() - 2);
 		system("pause");
 
-		manager_instance->SceneChange(scene_t::Field);
+		manager_instance->SceneChange(scene_t::Intro);
 		// 아무것도 초기화 되지 않음
 	}
 }
+
+/*
+
+로직순서
+
+1. 클릭
+
+2. 맵 초기화
+- 클릭한 곳 제외한 곳을 랜덤하게 지뢰로 바꾼다
+
+3. 숫자 세기
+- 지뢰가 설치되고 주변에 있는 빈칸들은 주변 9칸의 지뢰 수를 세서 표시한다
+
+4. sweep
+- 클릭했던 곳 주변에 지뢰가 없으면 모두 sweep 한다
+- 또 그 주변이 빈칸이면 '4' 반복
+
+- 주변에 지뢰가 있으면 더이상 sweep 하지않는다
+- 지뢰일 경우 '6번' 순서로
+
+- sweep 되어있고 지뢰가 근처에있는 숫자칸 이면
+주변에 깃발이 있는지 확인한다
+없으면 주변에서 sweep될 칸을 미리 표시한다(구현안함)
+있으면 깃발을 제외한 나머지 주변칸을 sweep 한다
+이때 지뢰가있으면 밟힌다. -> '6번' 순서로
+
+5. 지뢰를 제외한 모든 칸이 sweep 되면 승리
+6. 지뢰를 swep 하면 패배
+
+7. 승리와 패배는 연출만 다르고 동작은 같다.
+
+*/

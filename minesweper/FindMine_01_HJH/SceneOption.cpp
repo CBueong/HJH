@@ -61,8 +61,8 @@ void SceneOption::Render() {
 
 			break;
 		}
-		dis(0, height() - 2);cout << this;
-		dis(0, height() - 1);cout << manager_instance;
+		dis(0, height() - 2);cout << "scene   :" << this;
+		dis(0, height() - 1);cout << "manager :" << manager_instance;
 	}
 	refresh = false;
 }

@@ -31,15 +31,15 @@ public:
 	virtual~SceneField();
 
 private:
-	shell ** Field = nullptr;
-	POINT cur{ 0,0 };
-	unsigned int click = 0;
+	shell ** Field;
+	POINT cur;
+		unsigned int click;
 
 	void Setting(int _x, int _y);		// Field 초기화
 	shell_t check(int _x, int _y);
 	void draw();
 	void draw_f(int _x, int _y);
-	void sweeping(int _x, int _y);		// main 기능
+	void sweepping(int _x, int _y);		// main 기능
 	void stepped(bool _step);			// gameover
 
 public:
