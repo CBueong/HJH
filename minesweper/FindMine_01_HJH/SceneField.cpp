@@ -29,10 +29,6 @@ void SceneField::Begin() {
 
 bool SceneField::Update() {
 
-	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
-		manager_instance->SceneChange(scene_t::Intro);
-	}
-
 	if (refresh) {
 
 		unsigned int count = 0;
@@ -49,6 +45,10 @@ bool SceneField::Update() {
 	}// win condition check
 
 	if (end) { manager_instance->SceneChange(scene_t::Intro); }
+
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
+		manager_instance->SceneChange(scene_t::Intro);
+	}
 
 	return true;
 } // Update
