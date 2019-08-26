@@ -5,7 +5,7 @@
 #include "Scene.h"
 
 SceneManager::SceneManager() {}
-SceneManager::~SceneManager(){}
+SceneManager::~SceneManager() { SAFE(scene_instance); }
 
 void SceneManager::create_instance() {
 	if (instance == nullptr) { instance = new SceneManager; }

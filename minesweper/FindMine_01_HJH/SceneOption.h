@@ -16,7 +16,7 @@ class SceneOption :
 		back,
 	};
 
-	Data data;
+	Data data{10,10,10};
 
 	unsigned int sct = select::difficult;
 	unsigned int difficulty = (unsigned int)Difficult::easy;

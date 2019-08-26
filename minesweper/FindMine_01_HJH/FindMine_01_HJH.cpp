@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "Define.h"
+#include "vld.h"
 
 #include "Application.h"
 
@@ -10,8 +11,6 @@ int main() {
 	SetCursour(false);
 
 	Application * App = new Application;
-
-
 
 	App->Run();
 
