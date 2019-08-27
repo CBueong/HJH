@@ -99,15 +99,11 @@ void SceneField::KeyInput() {
 			}
 		}
 	}
-	if (GetAsyncKeyState(VK_NUMPAD2) & 0x0001) {	// show mine
-		for (int y = 0; y < Y();++y) {
-			for (int x = 0; x < X();++x) {
-				if (Field[y][x].type == shell_t::mine && Field[y][x].sweeped == false) {
-					// logic
-				}
-				refresh = true;
-			}
-		}
+
+	if (GetAsyncKeyState(VK_NUMPAD2) & 0x0001) {	
+
+		// custom cheat		
+
 	}
 
 } // KeyInput
@@ -144,6 +140,7 @@ shell_t SceneField::check(int _x, int _y) {
 
 	for (int y = _y - 1; y <= _y + 1; ++y) {
 		for (int x = _x - 1; x <= _x + 1; ++x) {
+
 			if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
 				if (Field[y][x].type == shell_t::mine) { count++; }
 			}
@@ -171,6 +168,7 @@ void SceneField::draw() {
 } // draw
 
 void SceneField::draw_f(int _x, int _y) {
+
 	if (cur.x == _x && cur.y == _y) {
 
 		if (Field[cur.y][cur.x].sweeped == false) {
