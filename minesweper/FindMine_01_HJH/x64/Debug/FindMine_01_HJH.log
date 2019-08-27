@@ -1,33 +1,25 @@
-﻿  Application.cpp
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\application.cpp(12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Scene.cpp
-  SceneField.cpp
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(11): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(40): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(41): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(88): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(90): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(94): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(95): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(102): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(103): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(131): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(133): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(146): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(161): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(165): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(244): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(255): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(267): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(277): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(294): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(296): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(314): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\5...operation\programming\github\hjh\minesweper\findmine_01_hjh\scenefield.cpp(316): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  SceneIntro.cpp
-  SceneManager.cpp
-  SceneOption.cpp
-  SceneSelect.cpp
-  코드를 생성하고 있습니다...
-  FindMine_01_HJH.vcxproj -> D:\5...Operation\Programming\Github\HJH\minesweper\x64\Debug\FindMine_01_HJH.exe
+﻿  SceneField.cpp
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(12): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(17): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(39): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(40): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(91): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(93): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(97): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(98): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(105): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(106): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(134): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(136): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(149): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(164): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(168): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(247): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(258): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(270): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(280): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(297): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(299): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(317): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\hjh\hjh\minesweper\findmine_01_hjh\scenefield.cpp(319): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  FindMine_01_HJH.vcxproj -> E:\HJH\HJH\minesweper\x64\Debug\FindMine_01_HJH.exe

@@ -7,6 +7,7 @@
 SceneField::SceneField(SceneManager * _instance) : Scene(_instance) {
 
 	static_Data = manager_instance->data;
+
 	Field = new shell*[Y()];
 	for (int i = 0;i < Y();++i) { Field[i] = new shell[X()]; }
 }
@@ -29,10 +30,6 @@ void SceneField::Begin() {
 
 bool SceneField::Update() {
 
-	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
-		manager_instance->SceneChange(scene_t::Intro);
-	}
-
 	if (refresh) {
 
 		unsigned int count = 0;
@@ -49,6 +46,10 @@ bool SceneField::Update() {
 	}// win condition check
 
 	if (end) { manager_instance->SceneChange(scene_t::Intro); }
+
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
+		manager_instance->SceneChange(scene_t::Intro);
+	}
 
 	return true;
 } // Update
@@ -265,7 +266,7 @@ void SceneField::sweepping(int _x, int _y) {
 		for (int y = _y - 1; y <= _y + 1; ++y) {
 			for (int x = _x - 1; x <= _x + 1; ++x) {
 				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
-					if (Field[y][x].flag) { flip++; break; }
+					if (Field[y][x].flag) { flip++; }
 				}
 			}
 		}// check flag to flip
