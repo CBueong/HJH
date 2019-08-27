@@ -17,10 +17,16 @@ void Application::Run() {
 		KeyInput();
 	}
 
-	dis(0,19);system("pause");
+	dis(0, height()-5); system("pause");
 }
 
-void Application::Begin() { GET_SM()->Begin(); }
+void Application::Begin() {
+
+	system("title Mine Sweeper HJH");
+	SetCursour(false);
+
+	GET_SM()->Begin();
+}
 
 bool Application::Update() { return GET_SM()->Update(); }
 

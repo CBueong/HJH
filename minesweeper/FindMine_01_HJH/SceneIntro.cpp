@@ -35,22 +35,21 @@ void SceneIntro::Render() {
 
 	if (refresh) {
 
+		menu();
+
 		switch ((select)sct)
 		{
-		case select::start:
-			menu();
+		case select::start:			
 			clr(Color::d_red);
 			dis((width() / 2) - (8), 6);cout << "¡¶ Find Mine ¡·";
 			break;
 
 		case select::option:
-			menu();
 			clr(Color::d_green);
 			dis((width() / 2) - (8), 8);cout << "¡¶ Option    ¡·";
 			break;
 
 		case select::quit:
-			menu();
 			clr(Color::d_gray);
 			dis((width() / 2) - (8), 10);cout << "¡¶ Run       ¡·";
 			break;

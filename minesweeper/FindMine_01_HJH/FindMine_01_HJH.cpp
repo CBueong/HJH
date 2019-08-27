@@ -4,11 +4,7 @@
 
 #include "Application.h"
 
-int main() {
-
-	system("title Mine Sweeper HJH");
-	SetConsoleSize();
-	SetCursour(false);
+int main() {	
 
 	Application * App = new Application;
 

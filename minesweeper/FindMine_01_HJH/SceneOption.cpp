@@ -9,12 +9,12 @@ SceneOption::SceneOption(SceneManager* _instance) : Scene(_instance) {}
 
 SceneOption::~SceneOption() {}
 
-void SceneOption::Begin() {	// highlight = white , default = d_gray	
+void SceneOption::Begin() {		
 
 	system("cls");
 	static_Data = manager_instance->data;
 	SetConsoleSize();
-	menu(Color::d_gray);
+	menu(Color::d_gray);// highlight = white , default = d_gray
 }
 
 bool SceneOption::Update() {
@@ -29,7 +29,7 @@ bool SceneOption::Update() {
 		case Difficult::insane:	manager_instance->data = { 30,30,250 };		break;
 		case Difficult::custom:	manager_instance->data = data;				break;
 		default:				manager_instance->data = { 10,10,10 };		break;
-		}// 설정 값 전달
+		}// data set
 
 		manager_instance->SceneChange(scene_t::Intro);
 	}
@@ -40,35 +40,34 @@ void SceneOption::Render() {
 
 	if (refresh) {
 
+		menu(Color::d_gray);
+
 		switch ((select)sct)
 		{
 		case select::difficult:
-			menu(Color::d_gray);
 			break;
 
-		case select::x:
-			menu(Color::d_gray);
+		case select::x:			
 			clr();
 			dis((width() / 2) - (10), 10);cout << "《  Width        》";
 			dis((width() / 2) + 2, 10);cout << data.x;
 			break;
+
 		case select::y:
-			menu(Color::d_gray);
 			clr();
 			dis((width() / 2) - (10), 12);cout << "《  Height       》";
 			dis((width() / 2) + 2, 12);cout << data.y;
 			break;
+
 		case select::mine:
-			menu(Color::d_gray);
 			clr();
 			dis((width() / 2) - (10), 14);cout << "《  Mine         》";
 			dis((width() / 2) + 2, 14);cout << data.mine;
 			break;
+
 		case select::back:
-			menu(Color::d_gray);
 			clr();
 			dis((width() / 2) - (2), 16);cout << "Back";
-
 			break;
 		}
 		dis(0, height() - 2);cout << "scene   :" << this;
@@ -115,7 +114,7 @@ void SceneOption::KeyInput() {
 		else if (sct < select::back) { sct++; }
 		refresh = true;
 	}
-}
+}// data control here
 
 scene_t SceneOption::get_SceneType() { return scene_t::Option; }
 
@@ -139,7 +138,7 @@ void SceneOption::menu(Color _t, Color _b) {
 
 	dis((width()) - (11), (height() - 1));cout << "HJH made";
 
-	menu_diff(_t, _b);														// menu_diff() here
+	menu_diff(_t, _b);													// menu_diff() here
 }
 
 void SceneOption::menu_diff(Color _t, Color _b) {
@@ -211,4 +210,4 @@ void SceneOption::menu_diff(Color _t, Color _b) {
 		dis((width() / 2) - (2), 16);cout << "Back";
 		break;
 	}
-}
+}// to may overlapping

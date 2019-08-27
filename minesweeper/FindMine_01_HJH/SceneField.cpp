@@ -16,7 +16,7 @@ SceneField::~SceneField() {
 
 	for (int i = 0;i < Y();++i) { SAFE_ARR(Field); }
 	SAFE(Field);
-}
+} // delete **arr but lick alive...
 
 void SceneField::Begin() {
 
@@ -90,7 +90,7 @@ void SceneField::KeyInput() {
 	if ((GetAsyncKeyState(VK_RIGHT) & 0x0001) || (GetAsyncKeyState('D') & 0x0001)) { if (cur.x < X() - 1)	cur.x++;	refresh = true; }
 
 	//cheat
-	if (GetAsyncKeyState(VK_NUMPAD1) & 0x0001) {	// sweep reverse
+	if (GetAsyncKeyState(VK_NUMPAD1) & 0x0001) {	// sweep reverse	
 		for (int y = 0; y < Y();++y) {
 			for (int x = 0; x < X();++x) {
 				Field[y][x].sweeped = !Field[y][x].sweeped;
@@ -161,7 +161,7 @@ void SceneField::draw() {
 
 		for (int x = 0; x < X(); ++x) {
 
-			draw_s(x, y);
+			draw_s(x, y);//pass
 		}
 	}
 } // draw
@@ -200,7 +200,6 @@ void SceneField::draw_s(int _x, int _y) {
 		if (Field[_y][_x].sweeped == false) {
 
 			if (Field[_y][_x].flag) { clr(Color::red, Color::white); cout << "£Ø"; clr(); }
-
 			else { cout << "¡á"; }
 		}
 
@@ -301,7 +300,8 @@ void SceneField::End(bool _result) {
 					cout << "£Ø";
 				}
 			}
-		} // show mine
+		} // show mine to "£Ø"
+
 		dis(width() / 2 - 2, Y() + 7);
 		clr(Color::white);
 		cout << "»Ñµí";
@@ -321,7 +321,7 @@ void SceneField::End(bool _result) {
 					cout << "¢Á";
 				}
 			}
-		} // show mine
+		} // show mine to "¢Á"
 
 		dis(width() / 2 - 5, Y() + 7);
 		clr(Color::red);
