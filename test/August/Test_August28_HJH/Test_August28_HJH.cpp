@@ -22,7 +22,7 @@ int main()
 		std::vector<std::string>{"2","1 1","5 5"},
 	};
 
-	std::vector<std::string> testcase01
+	std::vector<std::string> testcase02
 	{
 	{"1 1 9 0 5"},
 	{"1 1 8 0 3"},
@@ -97,10 +97,12 @@ int main()
 	//Problem01 P09(case09);	//
 	//Problem01 P10(case10);	//
 
-	std::cout << "test 01 "<<std::endl;
+	std::cout << "test 01 " << std::endl;
 	for (auto &testcase : testcase01) { Problem01(testcase).summit(); SPACE; }
 
-	//	P02.summit(); SPACE;
+	std::cout << "test 02 " << std::endl;
+	for (auto &testcase : testcase02) { Problem02(testcase).summit(); SPACE; }
+
 	//	P03.summit(); SPACE;
 	//	P04.summit(); SPACE;
 	//	P05.summit(); SPACE;

@@ -3,12 +3,12 @@
 class Problem02 :public TestFormat
 {
 public:
-	Problem02(const std::vector<std::string>& _caseInput);
+	Problem02(const std::string& _caseInput);
 	~Problem02();
 
 	virtual void summit() override;
 
 public:
-	int solution;
+	unsigned int solution;
 };
 
