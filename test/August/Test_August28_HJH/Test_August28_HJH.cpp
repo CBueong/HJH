@@ -22,80 +22,19 @@ int main()
 		std::vector<std::string>{"2","1 1","5 5"},
 	};
 
-	std::vector<std::string> testcase02
+	std::vector<std::vector<std::string>> testcase02
 	{
-	{"1 1 9 0 5"},
-	{"1 1 8 0 3"},
-	{"2 0 3 1 1"}
+	std::vector<std::string>{"1 1 9 0 5"},
+	std::vector<std::string>{"1 1 8 0 3"},
+	std::vector<std::string>{"2 0 3 1 1"},
 	};
 
-	std::vector<std::string> case03
+	std::vector<std::vector<std::string>> testcase02
 	{
-	{},
-	{},
-	{}
+	std::vector<std::string>{"3","6 3 6","4 4 4","6 2 5"},
+	std::vector<std::string>{"1","1 1 1"},
+	std::vector<std::string>{"2","1 2 3","4 5 6"},
 	};
-
-	std::vector<std::string> case04
-	{
-	{},
-	{},
-	{}
-	};
-
-	std::vector<std::string> case05
-	{
-	{},
-	{},
-	{}
-	};
-
-	std::vector<std::string> case06
-	{
-	{},
-	{},
-	{}
-	};
-
-	std::vector<std::string> case07
-	{
-	{},
-	{},
-	{}
-	};
-
-	std::vector<std::string> case08
-	{
-	{},
-	{},
-	{}
-	};
-
-	std::vector<std::string> case09
-	{
-	{},
-	{},
-	{}
-	};
-
-	std::vector<std::string> case10
-	{
-	{},
-	{},
-	{}
-	};
-
-
-
-	//Problem01 P02(case02);	// 
-	//Problem01 P03(case03);	//
-	//Problem01 P04(case04);	//
-	//Problem01 P05(case05);	//
-	//Problem01 P06(case06);	//
-	//Problem01 P07(case07);	//
-	//Problem01 P08(case08);	//
-	//Problem01 P09(case09);	//
-	//Problem01 P10(case10);	//
 
 	std::cout << "test 01 " << std::endl;
 	for (auto &testcase : testcase01) { Problem01(testcase).summit(); SPACE; }

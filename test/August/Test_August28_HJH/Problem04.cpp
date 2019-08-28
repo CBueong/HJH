@@ -4,6 +4,10 @@
 
 Problem04::Problem04(const std::vector<std::string>& _solutionInput) :TestFormat(_solutionInput)
 {
+	n = atoi(_solutionInput[0].c_str());
+
+
+
 
 }
 
@@ -22,9 +26,9 @@ void Problem04::summit()
 
 void Problem04::play(int* _gambler) {
 
-	int count=0;
+	int count = 0;
 
-	int min=0, max=0, temp=0;
+	int min = 0, max = 0, temp = 0;
 
 	// ¿¬»ê
 

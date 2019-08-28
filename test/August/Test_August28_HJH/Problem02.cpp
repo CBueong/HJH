@@ -2,7 +2,7 @@
 #include "Problem02.h"
 
 
-Problem02::Problem02(const std::string& _caseInput) 
+Problem02::Problem02(const std::vector<std::string>& _caseInput) :TestFormat(_caseInput)
 {
 	// 들어오는 값을 바로 계산한다.
 	// 모든 자릿수 마다 제곱하여 더하기
@@ -11,7 +11,7 @@ Problem02::Problem02(const std::string& _caseInput)
 
 	for (int i = 0; i < _caseInput.size(); ++i) {
 
-		if (_caseInput[i] == ' ') {
+		if (_caseInput[0][i] == ' ') {
 
 			solution += atoi(temp.c_str());
 			temp.clear();

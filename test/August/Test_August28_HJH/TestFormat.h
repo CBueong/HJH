@@ -2,7 +2,6 @@
 class TestFormat
 {
 public:
-	TestFormat() = default;
 	TestFormat(const std::vector<std::string>&);
 	~TestFormat();	
 
