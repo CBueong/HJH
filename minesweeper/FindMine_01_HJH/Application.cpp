@@ -8,8 +8,7 @@ Application::~Application() { DEL_SM(); }
 
 void Application::Run() {
 
-	Begin();
-	srand(time(NULL));
+	Begin();	
 
 	while (Update()) {
 
@@ -17,7 +16,7 @@ void Application::Run() {
 		KeyInput();
 	}
 
-	dis(0, height()-5); system("pause");
+	dis(0, height() - 5); system("pause");
 }
 
 void Application::Begin() {

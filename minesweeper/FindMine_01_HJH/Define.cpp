@@ -35,15 +35,15 @@ void clr(Color _word, Color _back) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
-void SetDifficult(Difficult _difficulty) {
-
-	switch (_difficulty)
-	{
-	case Difficult::easy:	static_Data = { 10,10,10 };		break;
-	case Difficult::normal:	static_Data = { 16,16,40 };		break;
-	case Difficult::hard:	static_Data = { 26,16,99 };		break;
-	case Difficult::insane:	static_Data = { 30,30,200 };	break;
-		//case Difficult::custom:break;
-	default:				static_Data = { 10,10,10 };		break;
-	}
-}
+//void SetDifficult(Difficult _difficulty) {
+//
+//	switch (_difficulty)
+//	{
+//	case Difficult::easy:	static_Data = { 10,10,10 };		break;
+//	case Difficult::normal:	static_Data = { 16,16,40 };		break;
+//	case Difficult::hard:	static_Data = { 26,16,99 };		break;
+//	case Difficult::insane:	static_Data = { 30,30,200 };	break;
+//		//case Difficult::custom:break;
+//	default:				static_Data = { 10,10,10 };		break;
+//	}
+//}

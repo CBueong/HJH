@@ -8,7 +8,7 @@
 class SceneOption :
 	public Scene
 {
-	enum select {
+	enum select_t {
 		difficult,
 		x,
 		y,
@@ -18,7 +18,7 @@ class SceneOption :
 
 	Data data{10,10,10};
 
-	unsigned int sct = select::difficult;
+	unsigned int select = select_t::difficult;
 	unsigned int difficulty = (unsigned int)Difficult::easy;
 	bool custom = false;
 
