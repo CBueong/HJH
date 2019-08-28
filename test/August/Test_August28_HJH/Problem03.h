@@ -7,5 +7,11 @@ public:
 	~Problem03();
 
 	virtual void summit() override;
+
+public:
+
+	int solution = 0;
+
+	void cal();
 };
 

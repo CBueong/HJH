@@ -7,5 +7,13 @@ public:
 	~Problem04();
 
 	virtual void summit() override;
+
+public:
+
+	int n;						//사람수
+	std::vector<int*> gamble;	//나온수
+	int solution = 0;			//정답
+
+	void play(int* _gambler);
 };
 

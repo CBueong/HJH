@@ -3,7 +3,7 @@ class TestFormat
 {
 public:
 	TestFormat(const std::vector<std::string>&);
-	~TestFormat();
+	~TestFormat();	
 
 	virtual void summit() = 0;
 };

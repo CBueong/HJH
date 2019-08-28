@@ -15,19 +15,18 @@
 
 int main()
 {
-	std::vector<std::string> case01
+	std::vector<std::vector<std::string>> testcase01
 	{
-	{},
-	{},
-	{}
+		std::vector<std::string>{"3","2 9","4 3","14 9"},
+		std::vector<std::string>{"1","1 1"},
+		std::vector<std::string>{"2","1 1","5 5"},
 	};
 
-
-	std::vector<std::string> case02
+	std::vector<std::string> testcase01
 	{
-	{},
-	{},
-	{}
+	{"1 1 9 0 5"},
+	{"1 1 8 0 3"},
+	{"2 0 3 1 1"}
 	};
 
 	std::vector<std::string> case03
@@ -87,16 +86,29 @@ int main()
 	};
 
 
-	Problem01 P01(case01); SPACE;
-	Problem01 P02(case02); SPACE;
-	Problem01 P03(case03); SPACE;
-	Problem01 P04(case04); SPACE;
-	Problem01 P05(case05); SPACE;
-	Problem01 P06(case06); SPACE;
-	Problem01 P07(case07); SPACE;
-	Problem01 P08(case08); SPACE;
-	Problem01 P09(case09); SPACE;
-	Problem01 P010(case10);SPACE;
+
+	//Problem01 P02(case02);	// 
+	//Problem01 P03(case03);	//
+	//Problem01 P04(case04);	//
+	//Problem01 P05(case05);	//
+	//Problem01 P06(case06);	//
+	//Problem01 P07(case07);	//
+	//Problem01 P08(case08);	//
+	//Problem01 P09(case09);	//
+	//Problem01 P10(case10);	//
+
+	std::cout << "test 01 "<<std::endl;
+	for (auto &testcase : testcase01) { Problem01(testcase).summit(); SPACE; }
+
+	//	P02.summit(); SPACE;
+	//	P03.summit(); SPACE;
+	//	P04.summit(); SPACE;
+	//	P05.summit(); SPACE;
+	//	P06.summit(); SPACE;
+	//	P07.summit(); SPACE;
+	//	P08.summit(); SPACE;
+	//	P09.summit(); SPACE;
+	//	P10.summit(); SPACE;
 
 	getchar();
 	getchar();
