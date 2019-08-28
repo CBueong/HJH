@@ -10,10 +10,10 @@ public:
 
 public:
 
-	int n;						//사람수
-	std::vector<int*> gamble;	//나온수
-	int solution = 0;			//정답
+	int n;									//사람수
+	std::vector<std::vector<int>> gambler;	//나온수
+	int solution = 0;						//정답
 
-	void play(int* _gambler);
+	int play(std::vector<int> _gambler);
 };
 

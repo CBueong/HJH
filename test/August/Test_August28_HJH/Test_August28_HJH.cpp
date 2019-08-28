@@ -29,7 +29,7 @@ int main()
 	std::vector<std::string>{"2 0 3 1 1"},
 	};
 
-	std::vector<std::vector<std::string>> testcase02
+	std::vector<std::vector<std::string>> testcase04
 	{
 	std::vector<std::string>{"3","6 3 6","4 4 4","6 2 5"},
 	std::vector<std::string>{"1","1 1 1"},
@@ -43,7 +43,10 @@ int main()
 	for (auto &testcase : testcase02) { Problem02(testcase).summit(); SPACE; }
 
 	//	P03.summit(); SPACE;
-	//	P04.summit(); SPACE;
+
+	std::cout << "test 04 " << std::endl;
+	for (auto &testcase : testcase04) { Problem02(testcase).summit(); SPACE; }
+
 	//	P05.summit(); SPACE;
 	//	P06.summit(); SPACE;
 	//	P07.summit(); SPACE;

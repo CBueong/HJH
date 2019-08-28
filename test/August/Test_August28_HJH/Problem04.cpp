@@ -6,9 +6,23 @@ Problem04::Problem04(const std::vector<std::string>& _solutionInput) :TestFormat
 {
 	n = atoi(_solutionInput[0].c_str());
 
+	std::string temp;
+	std::vector<int> result;
 
+	for (int i = 1; i < _solutionInput.size(); ++i) {
+		for (int j = 0; j < _solutionInput[i].size(); ++j) {
 
+			if (_solutionInput[i][j] == ' ') {
 
+				result.push_back(atoi(temp.c_str()));
+				temp.clear();
+			}
+			else { temp += _solutionInput[i]; }
+
+		}
+		gambler.push_back(result);
+		result.clear();
+	}
 }
 
 
@@ -19,23 +33,40 @@ Problem04::~Problem04()
 
 void Problem04::summit()
 {
-	for (auto i : gamble) { play(i); }
+	for (auto i : gambler) { if (play(i) > solution) { solution = play(i); } }
 
 	std::cout << solution << std::endl;
 }
 
-void Problem04::play(int* _gambler) {
+int Problem04::play(std::vector<int> _gambler) {
 
 	int count = 0;
+	int index = 0;
 
-	int min = 0, max = 0, temp = 0;
+	for (int i = 0; i < 3; ++i)for (int j = 0; j < 3; ++j)
+	{
+		if ((_gambler[i] == _gambler[j]) && (i != j))
+		{
+			index = i; count++;
+		}
+	}
 
-	// ¿¬»ê
+	switch (count)
+	{
+	case 0:
+		int max = _gambler[0];
 
-	if (count == 3) { solution += ((temp * 1000) + 5000); }
+		for (auto i : _gambler) { if (i > max) { max = i; } }
 
-	else if (count == 2) { solution += ((temp * 500) + 2000); }
+		return (max * 200);
+		break;
 
-	else { solution += (max * 200); }
+	case 1:
+		return ((_gambler[index] * 500) + 2000);
+		break;
 
+	case 2:
+		return ((_gambler[index] * 1000) + 5000);
+		break;
+	}
 }
