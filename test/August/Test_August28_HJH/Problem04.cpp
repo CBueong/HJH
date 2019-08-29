@@ -51,11 +51,11 @@ int Problem04::play(std::vector<int> _gambler) {
 		}
 	}
 
+	int max = _gambler[0];
+
 	switch (count)
 	{
 	case 0:
-		int max = _gambler[0];
-
 		for (auto i : _gambler) { if (i > max) { max = i; } }
 
 		return (max * 200);
