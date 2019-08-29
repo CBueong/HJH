@@ -87,7 +87,7 @@ void SceneField::KeyInput() {
 
 	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
 		manager_instance->SceneChange(scene_t::Intro);
-	}// ESC // back to Intro
+		exit(0);}// ESC // back to Intro
 
 	//cheat
 	if (GetAsyncKeyState(VK_NUMPAD1) & 0x0001) {	// sweep reverse	
