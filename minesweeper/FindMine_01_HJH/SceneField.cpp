@@ -168,7 +168,7 @@ void SceneField::draw() {
 
 void SceneField::draw_shell(int _x, int _y) {
 
-	if (cur.x == _x && cur.y == _y) {
+	if (cur.x == _x && cur.y == _y) {	
 
 		if (Field[cur.y][cur.x].sweeped == false) {
 
@@ -191,7 +191,7 @@ void SceneField::draw_shell(int _x, int _y) {
 			case shell_t::mine:		clr(Color::black, Color::red);	cout << "¢Á";	break;
 			}
 		}
-	}
+	}// cur pos
 
 	else {
 
@@ -293,7 +293,6 @@ void SceneField::End(bool _result) {
 	if (_result) {
 
 		for (int y = 0; y < Y(); ++y) {
-
 			for (int x = 0; x < X(); ++x) {
 
 				clr(Color::red, Color::white);
@@ -314,7 +313,6 @@ void SceneField::End(bool _result) {
 	else {
 
 		for (int y = 0; y < Y(); ++y) {
-
 			for (int x = 0; x < X(); ++x) {
 
 				clr(Color::red, Color::white);
