@@ -2,6 +2,8 @@
 #include "Intro.h"
 #include "Control.h"
 
+#include "vld.h"
+
 int main()
 {
 	srand(time(0));
