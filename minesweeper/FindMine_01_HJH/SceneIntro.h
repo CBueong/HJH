@@ -6,7 +6,7 @@
 #include "SceneIntro.h"
 class SceneIntro : public Scene
 {
-	enum select {
+	enum select_t {
 		start,	// find mine
 		option,	// option
 		quit,	// run
@@ -22,7 +22,7 @@ private:
 public:
 	//SceneManager* manager_instance = nullptr;
 	//bool refresh = false;
-	unsigned int sct = select::start;
+	unsigned int select = select_t::start;
 
 	virtual void Begin();
 	virtual bool Update();

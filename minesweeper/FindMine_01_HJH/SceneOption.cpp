@@ -19,7 +19,7 @@ void SceneOption::Begin() {
 
 bool SceneOption::Update() {
 
-	if ((GetAsyncKeyState(VK_RETURN) & 0x0001) && (sct == (unsigned int)select::back)) {
+	if ((GetAsyncKeyState(VK_RETURN) & 0x0001) && (select == (unsigned int)select_t::back)) {
 
 		switch ((Difficult)difficulty)
 		{
@@ -42,30 +42,31 @@ void SceneOption::Render() {
 
 		menu(Color::d_gray);
 
-		switch ((select)sct)
+		switch ((select_t)select)
 		{
-		case select::difficult:
+		case select_t::difficult:
+			//draw_s()
 			break;
 
-		case select::x:			
+		case select_t::x:			
 			clr();
 			dis((width() / 2) - (10), 10);cout << "¡¶  Width        ¡·";
 			dis((width() / 2) + 2, 10);cout << data.x;
 			break;
 
-		case select::y:
+		case select_t::y:
 			clr();
 			dis((width() / 2) - (10), 12);cout << "¡¶  Height       ¡·";
 			dis((width() / 2) + 2, 12);cout << data.y;
 			break;
 
-		case select::mine:
+		case select_t::mine:
 			clr();
 			dis((width() / 2) - (10), 14);cout << "¡¶  Mine         ¡·";
 			dis((width() / 2) + 2, 14);cout << data.mine;
 			break;
 
-		case select::back:
+		case select_t::back:
 			clr();
 			dis((width() / 2) - (2), 16);cout << "Back";
 			break;
@@ -80,38 +81,38 @@ void SceneOption::KeyInput() {
 
 	if ((GetAsyncKeyState(VK_LEFT) & 0x0001) || (GetAsyncKeyState('A') & 0x0001)) {
 
-		switch ((select)sct)
+		switch ((select_t)select)
 		{
-		case select::difficult:	if (difficulty > (unsigned int)Difficult::easy) { difficulty--; }	break;
-		case select::x:			if (data.x > 1) { data.x--; };										break;
-		case select::y:			if (data.y > 1) { data.y--; };										break;
-		case select::mine:		if (data.mine > 1) { data.mine--; };								break;
+		case select_t::difficult:	if (difficulty > (unsigned int)Difficult::easy) { difficulty--; }	break;
+		case select_t::x:			if (data.x > 1) { data.x--; };										break;
+		case select_t::y:			if (data.y > 1) { data.y--; };										break;
+		case select_t::mine:		if (data.mine > 1) { data.mine--; };								break;
 		}
 		refresh = true;
 	}
 
 	if ((GetAsyncKeyState(VK_RIGHT) & 0x0001) || (GetAsyncKeyState('D') & 0x0001)) {
 
-		switch ((select)sct)
+		switch ((select_t)select)
 		{
-		case select::difficult:	if (difficulty < (unsigned int)Difficult::custom) { difficulty++; }	break;
-		case select::x:			data.x++;															break;
-		case select::y:			data.y++;															break;
-		case select::mine:		if (mine < (width()*Y())) { data.mine++; };							break;
+		case select_t::difficult:	if (difficulty < (unsigned int)Difficult::custom) { difficulty++; }	break;
+		case select_t::x:			data.x++;															break;
+		case select_t::y:			data.y++;															break;
+		case select_t::mine:		if (mine < (width()*Y())) { data.mine++; };							break;
 		}
 		refresh = true;
 	}
 
 	if ((GetAsyncKeyState(VK_UP) & 0x0001) || (GetAsyncKeyState('W') & 0x0001)) {
 
-		if (difficulty != (unsigned int)Difficult::custom) { sct = select::difficult; }
-		else if (sct > (unsigned int)select::difficult) { sct--; }
+		if (difficulty != (unsigned int)Difficult::custom) { select = select_t::difficult; }
+		else if (select > (unsigned int)select_t::difficult) { select--; }
 		refresh = true;
 	}
 
 	if ((GetAsyncKeyState(VK_DOWN) & 0x0001) || (GetAsyncKeyState('S') & 0x0001)) {
-		if (difficulty != (unsigned int)Difficult::custom) { sct = select::back; }
-		else if (sct < select::back) { sct++; }
+		if (difficulty != (unsigned int)Difficult::custom) { select = select_t::back; }
+		else if (select < select_t::back) { select++; }
 		refresh = true;
 	}
 }// data control here
@@ -126,7 +127,7 @@ void SceneOption::menu(Color _t, Color _b) {
 
 	dis((width() / 2) - (6), 6);cout << "Difficulty ";
 
-	//dis((width() / 2) - (10), 8);cout << "¡¶    e a s y    ¡·";		// menu_diff()
+	//dis((width() / 2) - (10), 8);cout << "¡¶    e a s y    ¡·";		// menu_diff() doing
 
 	//dis((width() / 2) - (10), 10);cout << "¡¶  Width        ¡·";
 
@@ -143,7 +144,7 @@ void SceneOption::menu(Color _t, Color _b) {
 
 void SceneOption::menu_diff(Color _t, Color _b) {
 
-	if (sct == select::difficult) { clr(); }
+	if (select == select_t::difficult) { clr(); }
 
 	switch ((Difficult)difficulty)
 	{

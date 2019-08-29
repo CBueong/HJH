@@ -6,49 +6,42 @@
 
 SceneField::SceneField(SceneManager * _instance) : Scene(_instance) {
 
+	srand(time(NULL));
+
 	static_Data = manager_instance->data;
 
 	Field = new shell*[Y()];
-	for (int i = 0;i < Y();++i) { Field[i] = new shell[X()]; }
+	for (int i = 0; i < Y(); ++i) { Field[i] = new shell[X()]; }
 }
 
 SceneField::~SceneField() {
 
-	for (int i = 0;i < Y();++i) { SAFE_ARR(Field); }
+	for (int i = 0; i < Y(); ++i) { SAFE_ARR(Field); }
 	SAFE(Field);
+
 } // delete **arr but lick alive...
 
 void SceneField::Begin() {
 
 	cur.x = 0, cur.y = 0;
 	click = 0;
+	mine_check = 0;
 
 	system("cls");
 	SetConsoleSize();
 	draw();
 } // Begin
 
-bool SceneField::Update() {	
+bool SceneField::Update() {
 
-	if (refresh) {
-
-		unsigned int count = 0;
-
-		for (int y = 0; y < Y(); ++y) {
-			for (int x = 0; x < X(); ++x) {
-
-				if (Field[y][x].sweeped == true) { count++; }
-			}
-		}
-
-		if (count == (X()*Y()) - static_Data.mine) { End(true); }
-	}// win condition check	
-
-	if (end) { manager_instance->SceneChange(scene_t::Intro); } 
-
-	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
+	if (end) {
 		manager_instance->SceneChange(scene_t::Intro);
-	}	
+		return true;
+	}
+
+	if (mine_check == (X()*Y()) - static_Data.mine) {
+		End(true);
+	}// win condition check		
 
 	return true;
 } // Update
@@ -57,8 +50,11 @@ void SceneField::Render() {
 
 	if (refresh) {
 		draw();
-		dis(0, height() - 2);cout << "scene   :" << this;
-		dis(0, height() - 1);cout << "manager :" << manager_instance;
+		dis(0, height() - 2); cout << "scene   :" << this;
+		dis(0, height() - 1); cout << "manager :" << manager_instance;
+
+		dis(width() - 5, height() - 2); cout << mine_check;
+		// sweeped count
 	}
 
 	refresh = false;
@@ -68,7 +64,7 @@ void SceneField::KeyInput() {
 
 	if (GetAsyncKeyState('E') & 0x0001) {
 
-		if (click == 0) { Setting(cur.x, cur.y); }	// only first click
+		if (click == 0) { LandingMine(cur.x, cur.y); }	// only first click
 
 		//Field[cur.y][cur.x].sweeped = true;		
 		sweepping(cur.x, cur.y);
@@ -89,10 +85,14 @@ void SceneField::KeyInput() {
 	if ((GetAsyncKeyState(VK_LEFT) & 0x0001) || (GetAsyncKeyState('A') & 0x0001)) { if (cur.x > 0)	cur.x--;	refresh = true; }
 	if ((GetAsyncKeyState(VK_RIGHT) & 0x0001) || (GetAsyncKeyState('D') & 0x0001)) { if (cur.x < X() - 1)	cur.x++;	refresh = true; }
 
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
+		manager_instance->SceneChange(scene_t::Intro);
+		exit(0);}// ESC // back to Intro
+
 	//cheat
 	if (GetAsyncKeyState(VK_NUMPAD1) & 0x0001) {	// sweep reverse	
-		for (int y = 0; y < Y();++y) {
-			for (int x = 0; x < X();++x) {
+		for (int y = 0; y < Y(); ++y) {
+			for (int x = 0; x < X(); ++x) {
 				Field[y][x].sweeped = !Field[y][x].sweeped;
 				refresh = true;
 			}
@@ -107,7 +107,7 @@ void SceneField::KeyInput() {
 
 scene_t SceneField::get_SceneType() { return scene_t::Field; }
 
-void SceneField::Setting(int _x, int _y) {
+void SceneField::LandingMine(int _x, int _y) {
 
 	int count = static_Data.mine;
 
@@ -133,7 +133,7 @@ void SceneField::Setting(int _x, int _y) {
 	}
 } // Setting
 
-shell_t SceneField::check(int _x, int _y) {
+SceneField::shell_t SceneField::check(int _x, int _y) {
 
 	unsigned int count = 0;
 
@@ -161,14 +161,14 @@ void SceneField::draw() {
 
 		for (int x = 0; x < X(); ++x) {
 
-			draw_s(x, y);//pass
+			draw_shell(x, y);//pass
 		}
 	}
 } // draw
 
-void SceneField::draw_s(int _x, int _y) {
+void SceneField::draw_shell(int _x, int _y) {
 
-	if (cur.x == _x && cur.y == _y) {
+	if (cur.x == _x && cur.y == _y) {	
 
 		if (Field[cur.y][cur.x].sweeped == false) {
 
@@ -179,19 +179,19 @@ void SceneField::draw_s(int _x, int _y) {
 		else {
 			switch (Field[cur.y][cur.x].type)
 			{
-			case shell_t::empty:	clr(Color::gray, Color::gray);				cout << "  ";	break;
-			case shell_t::one:		clr(Color::d_gray, Color::gray);			cout << "£±";	break;
-			case shell_t::two:		clr(Color::d_green, Color::gray);			cout << "£²";	break;
-			case shell_t::three:	clr(Color::d_blue, Color::gray);			cout << "£³";	break;
-			case shell_t::four:		clr(Color::yellow, Color::gray);			cout << "£´";	break;
-			case shell_t::five:		clr(Color::d_violet, Color::gray);			cout << "£µ";	break;
-			case shell_t::six:		clr(Color::sky, Color::gray);				cout << "£¶";	break;
-			case shell_t::seven:	clr(Color::blue, Color::gray);				cout << "£·";	break;
-			case shell_t::eight:	clr(Color::green, Color::gray);				cout << "£¸";	break;
-			case shell_t::mine:		clr(Color::black, Color::red);				cout << "¢Á";	break;
+			case shell_t::empty:	clr(Color::gray, Color::gray);	cout << "  ";	break;
+			case shell_t::one:		clr(Color::d_gray, Color::gray);	cout << "£±";	break;
+			case shell_t::two:		clr(Color::d_green, Color::gray);	cout << "£²";	break;
+			case shell_t::three:	clr(Color::d_blue, Color::gray);	cout << "£³";	break;
+			case shell_t::four:		clr(Color::yellow, Color::gray);	cout << "£´";	break;
+			case shell_t::five:		clr(Color::d_violet, Color::gray);	cout << "£µ";	break;
+			case shell_t::six:		clr(Color::sky, Color::gray);	cout << "£¶";	break;
+			case shell_t::seven:	clr(Color::blue, Color::gray);	cout << "£·";	break;
+			case shell_t::eight:	clr(Color::green, Color::gray);	cout << "£¸";	break;
+			case shell_t::mine:		clr(Color::black, Color::red);	cout << "¢Á";	break;
 			}
 		}
-	}
+	}// cur pos
 
 	else {
 
@@ -233,6 +233,7 @@ void SceneField::sweepping(int _x, int _y) {
 		if (Field[_y][_x].type == shell_t::empty) {
 
 			Field[_y][_x].sweeped = true;
+			mine_check++;
 			//sweep here
 
 			for (int y = _y - 1; y <= _y + 1; ++y) {
@@ -251,26 +252,29 @@ void SceneField::sweepping(int _x, int _y) {
 		else {
 			if ((0 <= _x) && (_x < X()) && (0 <= _y) && (_y < Y())) {
 				Field[_y][_x].sweeped = true;
+				mine_check++;
 			}
 		}// empty near mine
 
 	}// sweep false
 
 	else {
-		unsigned flip = 0;
+		unsigned int flagged = 0;
 
 		for (int y = _y - 1; y <= _y + 1; ++y) {
 			for (int x = _x - 1; x <= _x + 1; ++x) {
+
 				if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
-					if (Field[y][x].flag) { flip++; }
+					if (Field[y][x].flag) { flagged++; }
 				}
 			}
 		}// check flag for flip
 
-		if (flip >= (unsigned int)Field[_y][_x].type) {
+		if (flagged >= (unsigned int)Field[_y][_x].type) {
 
 			for (int y = _y - 1; y <= _y + 1; ++y) {
 				for (int x = _x - 1; x <= _x + 1; ++x) {
+
 					if ((0 <= x) && (x < X()) && (0 <= y) && (y < Y())) {
 						if (!Field[y][x].sweeped) { sweepping(x, y); }
 					}//chain sweep  (be able to sweepping mine cause flag)
@@ -289,7 +293,6 @@ void SceneField::End(bool _result) {
 	if (_result) {
 
 		for (int y = 0; y < Y(); ++y) {
-
 			for (int x = 0; x < X(); ++x) {
 
 				clr(Color::red, Color::white);
@@ -310,7 +313,6 @@ void SceneField::End(bool _result) {
 	else {
 
 		for (int y = 0; y < Y(); ++y) {
-
 			for (int x = 0; x < X(); ++x) {
 
 				clr(Color::red, Color::white);
