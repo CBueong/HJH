@@ -10,7 +10,7 @@ int main() {
 
 	App->Run();
 
-	SAFE(App);
+	SAFE(App);	
 
 	return 0;
 }
