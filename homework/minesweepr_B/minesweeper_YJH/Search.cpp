@@ -22,7 +22,7 @@ void Search::Find(int st, int x, int y)
 				Y = 0;
 				Y1 = 0;
 				break;
-			}
+			}// 
 
 			if (map.GetMap(st, x + X, y + Y) != ' ' && map.GetMap(st, x + X, y + Y1) != ' ')
 			{
