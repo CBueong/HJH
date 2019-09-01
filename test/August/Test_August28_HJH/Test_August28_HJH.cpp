@@ -10,31 +10,24 @@
 #include "Problem08.h"
 #include "Problem09.h"
 #include "Problem10.h"
+#include "Input.h"
 
 #define SPACE (std::cout<<std::endl)
 
 int main()
 {
-	std::vector<std::vector<std::string>> testcase01
-	{
-		std::vector<std::string>{"3","2 9","4 3","14 9"},
-		std::vector<std::string>{"1","1 1"},
-		std::vector<std::string>{"2","1 1","5 5"},
-	};
+	using namespace Input;
 
-	std::vector<std::vector<std::string>> testcase02
-	{
-	std::vector<std::string>{"1 1 9 0 5"},
-	std::vector<std::string>{"1 1 8 0 3"},
-	std::vector<std::string>{"2 0 3 1 1"},
-	};
-
-	std::vector<std::vector<std::string>> testcase04
-	{
-	std::vector<std::string>{"3","6 3 6","4 4 4","6 2 5"},
-	std::vector<std::string>{"1","1 1 1"},
-	std::vector<std::string>{"2","1 2 3","4 5 6"},
-	};
+	//testcase01;
+	//testcase02;
+	//testcase03;
+	//testcase04;
+	//testcase05;
+	//testcase06;
+	//testcase07;
+	//testcase08;
+	//testcase09;
+	//testcase10;
 
 	std::cout << "test 01 " << std::endl;
 	for (auto &testcase : testcase01) { Problem01(testcase).summit(); SPACE; }
@@ -42,19 +35,33 @@ int main()
 	std::cout << "test 02 " << std::endl;
 	for (auto &testcase : testcase02) { Problem02(testcase).summit(); SPACE; }
 
-	//	P03.summit(); SPACE;
+	std::cout << "test 03 " << std::endl;
+	for (auto &testcase : testcase03) { Problem03(testcase).summit(); SPACE; }
 
 	std::cout << "test 04 " << std::endl;
-	for (auto &testcase : testcase04) { Problem02(testcase).summit(); SPACE; }
+	for (auto &testcase : testcase04) { Problem04(testcase).summit(); SPACE; }
 
-	//	P05.summit(); SPACE;
-	//	P06.summit(); SPACE;
-	//	P07.summit(); SPACE;
-	//	P08.summit(); SPACE;
-	//	P09.summit(); SPACE;
-	//	P10.summit(); SPACE;
+	std::cout << "test 05 " << std::endl;
+	for (auto &testcase : testcase05) { Problem05(testcase).summit(); SPACE; }
+
+	std::cout << "test 06 " << std::endl;
+	for (auto &testcase : testcase06) { Problem06(testcase).summit(); SPACE; }
+
+	std::cout << "test 07 " << std::endl;
+	for (auto &testcase : testcase07) { Problem07(testcase).summit(); SPACE; }
+
+	std::cout << "test 08 " << std::endl;
+	for (auto &testcase : testcase08) { Problem08(testcase).summit(); SPACE; }
+
+	std::cout << "test 09 " << std::endl;
+	for (auto &testcase : testcase09) { Problem09(testcase).summit(); SPACE; }
+
+	std::cout << "test 10 " << std::endl;
+	for (auto &testcase : testcase10) { Problem10(testcase).summit(); SPACE; }
+
 
 	getchar();
 	getchar();
 	return 0;
 }
+

@@ -6,14 +6,15 @@ public:
 	Problem04(const std::vector<std::string>& _solutionInput);
 	~Problem04();
 
+	void Cal();
 	virtual void summit() override;
 
 public:
+	//std::vector<std::string> testcoed;
 
-	int n;									//사람수
-	std::vector<std::vector<int>> gambler;	//나온수
-	int solution = 0;						//정답
-
-	int play(std::vector<int> _gambler);
+	int n;
+	bool error = false;
+	std::vector<std::vector<int>> gambler;
+	int solution = 0;	
 };
 

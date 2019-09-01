@@ -9,6 +9,8 @@ public:
 	virtual void summit() override;
 
 public:
-	unsigned int solution;
+	//std::vector<std::string> testcoed;
+
+	unsigned int solution = 0;
 };
 

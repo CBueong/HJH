@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Input.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Problem01.h" />
     <ClInclude Include="Problem02.h" />
