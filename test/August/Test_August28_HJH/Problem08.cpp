@@ -29,6 +29,8 @@ Problem08::Problem08(const std::vector<std::string>& _solutionInput) :TestFormat
 		table.push_back(body);
 	}
 	//
+
+	for (auto str : _solutionInput) { std::cout << str << std::endl; }
 }
 
 

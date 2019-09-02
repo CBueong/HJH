@@ -9,7 +9,7 @@ Problem07::Problem07(const std::vector<std::string>& _solutionInput) :TestFormat
 	for (auto str : _solutionInput[0]) {
 
 		if (str == ' ') {
-
+			
 			minit = atoi(temp.c_str()) * 60;
 			temp.clear();
 		}
@@ -24,7 +24,7 @@ Problem07::Problem07(const std::vector<std::string>& _solutionInput) :TestFormat
 	alarm = atoi(temp.c_str());
 	temp.clear();
 	//
-
+	std::cout << _solutionInput[0] << " + " << _solutionInput[1] << std::endl;
 }
 
 

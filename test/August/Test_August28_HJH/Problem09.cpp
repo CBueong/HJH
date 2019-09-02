@@ -9,6 +9,8 @@ Problem09::Problem09(const std::vector<std::string>& _solutionInput) :TestFormat
 	for (auto str : _solutionInput[0]) { temp += str; }
 	year = atoi(temp.c_str());
 	temp.clear();
+
+	std::cout << year << std::endl;
 }
 
 
