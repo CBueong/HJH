@@ -16,10 +16,10 @@ SceneField::SceneField(SceneManager * _instance) : Scene(_instance) {
 
 SceneField::~SceneField() {
 
-	for (int i = 0; i < Y(); ++i) { SAFE_ARR(Field); }
-	SAFE(Field);
+	for (int i = 0; i < Y(); ++i) { SAFE_ARR(Field[i]); }
+	SAFE_ARR(Field);
 
-} // delete **arr but lick alive...
+} // no more lick here...
 
 void SceneField::Begin() {
 
@@ -80,16 +80,16 @@ void SceneField::KeyInput() {
 		refresh = true;
 	} // Q	// flag reverse
 
-	if ((GetAsyncKeyState(VK_UP) & 0x0001) || (GetAsyncKeyState('W') & 0x0001)) { if (cur.y > 0)	cur.y--;	refresh = true; }
-	if ((GetAsyncKeyState(VK_DOWN) & 0x0001) || (GetAsyncKeyState('S') & 0x0001)) { if (cur.y < Y() - 1)	cur.y++;	refresh = true; }
-	if ((GetAsyncKeyState(VK_LEFT) & 0x0001) || (GetAsyncKeyState('A') & 0x0001)) { if (cur.x > 0)	cur.x--;	refresh = true; }
-	if ((GetAsyncKeyState(VK_RIGHT) & 0x0001) || (GetAsyncKeyState('D') & 0x0001)) { if (cur.x < X() - 1)	cur.x++;	refresh = true; }
+	if ((GetAsyncKeyState(VK_UP) & 0x0001) || (GetAsyncKeyState('W') & 0x0001)) { if (cur.y > 0) cur.y--; refresh = true; }
+	if ((GetAsyncKeyState(VK_DOWN) & 0x0001) || (GetAsyncKeyState('S') & 0x0001)) { if (cur.y < Y() - 1) cur.y++; refresh = true; }
+	if ((GetAsyncKeyState(VK_LEFT) & 0x0001) || (GetAsyncKeyState('A') & 0x0001)) { if (cur.x > 0) cur.x--; refresh = true; }
+	if ((GetAsyncKeyState(VK_RIGHT) & 0x0001) || (GetAsyncKeyState('D') & 0x0001)) { if (cur.x < X() - 1) cur.x++; refresh = true; }
 
 	if (GetAsyncKeyState(VK_ESCAPE) & 0x0001) {
 		manager_instance->SceneChange(scene_t::Intro);
-		exit(0);}// ESC // back to Intro
+	}// ESC // back to Intro
 
-	//cheat
+//cheat
 	if (GetAsyncKeyState(VK_NUMPAD1) & 0x0001) {	// sweep reverse	
 		for (int y = 0; y < Y(); ++y) {
 			for (int x = 0; x < X(); ++x) {
@@ -168,7 +168,7 @@ void SceneField::draw() {
 
 void SceneField::draw_shell(int _x, int _y) {
 
-	if (cur.x == _x && cur.y == _y) {	
+	if (cur.x == _x && cur.y == _y) {
 
 		if (Field[cur.y][cur.x].sweeped == false) {
 

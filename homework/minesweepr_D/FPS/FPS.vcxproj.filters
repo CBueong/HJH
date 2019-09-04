@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{3588f77d-dc42-4320-9a44-57466e371ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Global">
+      <UniqueIdentifier>{e0a39425-fcd0-4950-93dc-e81a99ab1b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Scene">
+      <UniqueIdentifier>{ad28f5a5-9bbf-40b7-8541-85926e13ba41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Scene\Scene">
+      <UniqueIdentifier>{69c68c2d-fb51-49c0-a767-809e7f256326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Scene\Scene\Sub">
+      <UniqueIdentifier>{0dece13f-b576-4463-bd23-1e85a5361581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game">
+      <UniqueIdentifier>{3603a68c-5349-4877-bd09-276c4a62909a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Project\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneFactory.h">
+      <Filter>Project\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Project\Scene\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Project\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroScene.h">
+      <Filter>Project\Scene\Scene\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Project\Scene\Scene\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>Project\Scene\Scene\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Project\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Project\Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FPS.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Project\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneFactory.cpp">
+      <Filter>Project\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Project\Scene\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="Define.cpp">
+      <Filter>Project\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroScene.cpp">
+      <Filter>Project\Scene\Scene\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Project\Scene\Scene\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Project\Scene\Scene\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Project\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Project\Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
